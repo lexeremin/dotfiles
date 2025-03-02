@@ -5,5 +5,7 @@
 --ignore=zsh
 --ignore=kitty
 --ignore=wezterm
+--ignore=.git
+--ignore=ghostty
 
 

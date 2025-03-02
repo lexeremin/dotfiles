@@ -1,42 +1,125 @@
 #!/bin/bash
 
-# Define the list of directories to rename (edit this list as needed)
-DIRS=("nvim" "ghostty" "alacritty" "tmux" "starship") # Replace with your directory names
+# Display help message
+show_help() {
+  echo "Usage: $0 [--restow|--unstow]"
+  echo "Manage dotfiles symlinks using GNU Stow and backup existing setup."
+  echo "Options:"
+  echo "  --restow   Update symlinks by removing and recreating them."
+  echo "  --unstow   Remove symlinks and restore backups."
+  echo "  (default)  Create symlinks."
+  exit 0
+}
 
-# Base directory
-BASE_DIR="$HOME/.config"
-
-# Print the list of directories that will be renamed
-echo "The following directories in $BASE_DIR will be renamed:"
-for DIR in "${DIRS[@]}"; do
-  echo "  - $DIR -> $DIR.bak"
-done
-
-# Ask for confirmation
-read -p "Do you want to proceed? (y/n) " -n 1 -r
-echo # Move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-  echo "Aborted."
-  exit 1
+# Parse command-line arguments
+MODE="stow" # Default mode
+if [[ "$1" == "--restow" ]]; then
+  MODE="restow"
+elif [[ "$1" == "--unstow" ]]; then
+  MODE="unstow"
+elif [[ "$1" == "--help" || "$1" == "-h" ]]; then
+  show_help
 fi
 
-# Loop through each directory in the list
-for DIR in "${DIRS[@]}"; do
-  FULL_PATH="$BASE_DIR/$DIR"
-  BAK_PATH="$FULL_PATH.bak"
+# Read .stowrc to get ignore patterns
+IGNORE_PATTERNS=()
+if [[ -f .stowrc ]]; then
+  while IFS= read -r line; do
+    if [[ "$line" == --ignore=* ]]; then
+      IGNORE_PATTERNS+=("${line#--ignore=}")
+    fi
+  done <.stowrc
+fi
 
-  # Check if the directory exists
-  if [ ! -d "$FULL_PATH" ]; then
-    echo "Warning: Directory '$FULL_PATH' does not exist. Skipping..."
-    continue
+# Always ignore the .git directory
+IGNORE_PATTERNS+=(".git")
+
+# Function to check if a directory should be ignored
+should_ignore() {
+  local dir="$1"
+  for pattern in "${IGNORE_PATTERNS[@]}"; do
+    if [[ "$dir" == "$pattern" || "$dir" == *"/$pattern" ]]; then
+      return 0 # Directory should be ignored
+    fi
+  done
+  return 1 # Directory should not be ignored
+}
+
+# Get a list of all directories in the dotfiles directory
+DIRS=()
+while IFS= read -r -d '' dir; do
+  dir_name="${dir#./}" # Remove leading ./
+  if ! should_ignore "$dir_name"; then
+    DIRS+=("$dir_name")
   fi
+done < <(find . -mindepth 1 -maxdepth 1 -type d -print0)
 
-  # Check if the backup directory already exists
-  if [ -e "$BAK_PATH" ]; then
-    echo "Warning: Backup directory '$BAK_PATH' already exists. Skipping..."
-    continue
+# Function to rename directories and files to .bak
+backup_existing() {
+  local target="$1"
+  if [[ -e "$target" && ! -L "$target" ]]; then
+    echo "Backing up $target to $target.bak..."
+    mv "$target" "$target.bak"
   fi
+}
 
-  # Rename the directory
-  mv -v "$FULL_PATH" "$BAK_PATH"
+# Function to restore directories and files from .bak
+restore_backup() {
+  local target="$1"
+  if [[ -e "$target.bak" ]]; then
+    echo "Restoring $target.bak to $target..."
+    mv "$target.bak" "$target"
+  fi
+}
+
+# Backup existing directories in ~/.config/
+for dir in "${DIRS[@]}"; do
+  config_dir="$HOME/.config/${dir}"
+  backup_existing "$config_dir"
 done
+
+# Backup Zsh-related files in the home directory
+ZSH_FILES=(".zshrc" ".zlogin" ".zprofile" ".zshenv")
+for file in "${ZSH_FILES[@]}"; do
+  zsh_file="$HOME/$file"
+  backup_existing "$zsh_file"
+done
+
+# Run stow, restow, or unstow for each directory
+for dir in "${DIRS[@]}"; do
+  case "$MODE" in
+  "stow")
+    echo "Stowing $dir..."
+    stow "$dir"
+    ;;
+  "restow")
+    echo "Restowing $dir..."
+    stow --restow "$dir"
+    ;;
+  "unstow")
+    echo "Unstowing $dir..."
+    stow --delete "$dir"
+    ;;
+  *)
+    echo "Invalid mode: $MODE"
+    exit 1
+    ;;
+  esac
+done
+
+# Restore backups after unstow
+if [[ "$MODE" == "unstow" ]]; then
+  # Restore directories in ~/.config/
+  for dir in "${DIRS[@]}"; do
+    config_dir="$HOME/.config/${dir}"
+    restore_backup "$config_dir"
+  done
+
+  # Restore Zsh-related files in the home directory
+  for file in "${ZSH_FILES[@]}"; do
+    zsh_file="$HOME/$file"
+    restore_backup "$zsh_file"
+  done
+fi
+
+echo "Done!"
