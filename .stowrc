@@ -1,4 +1,9 @@
 --target=~/.config
 --ignore=.stowrc
 --ignore=DS_Store
+--ignore=leaves.txt
+--ignore=zsh
+--ignore=kitty
+--ignore=wezterm
+
 

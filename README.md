@@ -20,3 +20,5 @@ brew leaves > leaves.txt
 # Fresh installation
 brew install < leaves.txt
 ```
+
+By default some config files are disabled in the `.stowrc` file. To enable them, remove the `--ignore=<folders>` option.
