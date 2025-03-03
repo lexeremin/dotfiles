@@ -4,6 +4,6 @@
 --ignore=leaves.txt
 --ignore=kitty
 --ignore=wezterm
---ignore=ghostty
-
+--ignore=manual_backup.sh
+--ignore=setup.sh
 
