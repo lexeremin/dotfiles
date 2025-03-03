@@ -1,10 +1,14 @@
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# default editor
+export EDITOR=$(which nvim) 
+
 # set vim bindings as a standard 
 bindkey -v
 
 # tab conmplition
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit
 compinit
 
@@ -27,7 +31,6 @@ bindkey '^k' up-line-or-search
 bindkey '^j' down-line-or-search
 
 # syntax highlighting
-
 if [[ $(uname) == "Darwin" ]]; then
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi 

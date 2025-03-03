@@ -104,45 +104,67 @@ for file in "${ZSH_FILES[@]}"; do
   backup_existing "$zsh_file"
 done
 
+echo "export ZDOTDIR=$HOME/.config/zsh" >~/.zshenv
+
 # Run stow, restow, or unstow for each directory
-for dir in "${DIRS[@]}"; do
-  case "$MODE" in
-  "stow")
-    echo "Stowing $dir..."
-    if [[ "$dir" == "zsh" ]]; then
-      # Symlink zsh files to home directory
-      stow --verbose -t "$HOME/" "$dir"
-    else
-      stow --verbose -t "$HOME/.config/${dir}" "$dir"
-    fi
-    ;;
-  "restow")
-    echo "Restowing $dir..."
-    if [[ "$dir" == "zsh" ]]; then
-      # Restow zsh files to home directory
-      stow --restow --verbose -t "$HOME/" "$dir"
-    else
-      stow --restow --verbose -t "$HOME/.config/${dir}" "$dir"
-    fi
-    ;;
-  "unstow")
-    echo "Unstowing $dir..."
-    if [[ "$dir" == "zsh" ]]; then
-      # Unstow zsh files from home directory
-      stow --delete --verbose -t "$HOME/" "$dir"
-    else
-      stow --delete --verbose -t "$HOME/.config/${dir}" "$dir"
-    fi
-    ;;
-  *)
-    echo "Invalid mode: $MODE"
-    exit 1
-    ;;
-  esac
-done
+# for dir in "${DIRS[@]}"; do
+#   case "$MODE" in
+#   "stow")
+#     echo "Stowing $dir..."
+#     if [[ "$dir" == "zsh" ]]; then
+#       # Symlink zsh files to home directory
+#       stow --verbose -t "$HOME/" "$dir"
+#     else
+#       stow --verbose -t "$HOME/.config/${dir}" "$dir"
+#     fi
+#     ;;
+#   "restow")
+#     echo "Restowing $dir..."
+#     if [[ "$dir" == "zsh" ]]; then
+#       # Restow zsh files to home directory
+#       stow --restow --verbose -t "$HOME/" "$dir"
+#     else
+#       stow --restow --verbose -t "$HOME/.config/${dir}" "$dir"
+#     fi
+#     ;;
+#   "unstow")
+#     echo "Unstowing $dir..."
+#     if [[ "$dir" == "zsh" ]]; then
+#       # Unstow zsh files from home directory
+#       stow --delete --verbose -t "$HOME/" "$dir"
+#     else
+#       stow --delete --verbose -t "$HOME/.config/${dir}" "$dir"
+#     fi
+#     ;;
+#   *)
+#     echo "Invalid mode: $MODE"
+#     exit 1
+#     ;;
+#   esac
+# done
+
+case "$MODE" in
+"stow")
+  echo "Stowing..."
+  stow -v .
+  ;;
+"restow")
+  echo "Restowing..."
+  stow -v --restow .
+  ;;
+"unstow")
+  echo "Unstowing..."
+  stow -v --delete .
+  ;;
+*)
+  echo "Invalid mode: $MODE"
+  exit 1
+  ;;
+esac
 
 # Restore backups after unstow
 if [[ "$MODE" == "unstow" ]]; then
+  rm ~/.zshenv
   # Restore directories in ~/.config/
   for dir in "${DIRS[@]}"; do
     config_dir="$HOME/.config/${dir}"
