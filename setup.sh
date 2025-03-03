@@ -90,15 +90,30 @@ for dir in "${DIRS[@]}"; do
   case "$MODE" in
   "stow")
     echo "Stowing $dir..."
-    stow "$dir"
+    if [[ "$dir" == "zsh" ]]; then
+      # Symlink zsh files to ~/.config/zsh
+      stow -t "$HOME/" "$dir"
+    else
+      stow "$dir"
+    fi
     ;;
   "restow")
     echo "Restowing $dir..."
-    stow --restow "$dir"
+    if [[ "$dir" == "zsh" ]]; then
+      # Restow zsh files to ~/.config/zsh
+      stow --restow -t "$HOME/" "$dir"
+    else
+      stow --restow "$dir"
+    fi
     ;;
   "unstow")
     echo "Unstowing $dir..."
-    stow --delete "$dir"
+    if [[ "$dir" == "zsh" ]]; then
+      # Unstow zsh files from ~/.config/zsh
+      stow --delete -t "$HOME/" "$dir"
+    else
+      stow --delete "$dir"
+    fi
     ;;
   *)
     echo "Invalid mode: $MODE"
@@ -106,7 +121,6 @@ for dir in "${DIRS[@]}"; do
     ;;
   esac
 done
-
 # Restore backups after unstow
 if [[ "$MODE" == "unstow" ]]; then
   # Restore directories in ~/.config/
