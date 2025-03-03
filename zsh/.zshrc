@@ -1,6 +1,13 @@
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# set vim bindings as a standard 
+bindkey -v
+
+# tab conmplition
+autoload -Uz compinit
+compinit
+
 # file management
 source <(fzf --zsh)
 
