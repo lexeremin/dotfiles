@@ -13,6 +13,7 @@ show_help() {
 
 # Parse command-line arguments
 MODE="stow" # Default mode
+
 if [[ "$1" == "--restow" ]]; then
   MODE="restow"
 elif [[ "$1" == "--unstow" ]]; then
@@ -23,6 +24,7 @@ fi
 
 # Read .stowrc to get ignore patterns
 IGNORE_PATTERNS=()
+
 if [[ -f .stowrc ]]; then
   while IFS= read -r line; do
     if [[ "$line" == --ignore=* ]]; then
@@ -37,16 +39,19 @@ IGNORE_PATTERNS+=(".git")
 # Function to check if a directory should be ignored
 should_ignore() {
   local dir="$1"
+
   for pattern in "${IGNORE_PATTERNS[@]}"; do
     if [[ "$dir" == "$pattern" || "$dir" == *"/$pattern" ]]; then
       return 0 # Directory should be ignored
     fi
   done
+
   return 1 # Directory should not be ignored
 }
 
 # Get a list of all directories in the dotfiles directory
 DIRS=()
+
 while IFS= read -r -d '' dir; do
   dir_name="${dir#./}" # Remove leading ./
   if ! should_ignore "$dir_name"; then
@@ -57,6 +62,7 @@ done < <(find . -mindepth 1 -maxdepth 1 -type d -print0)
 # Function to rename directories and files to .bak
 backup_existing() {
   local target="$1"
+
   if [[ -e "$target" && ! -L "$target" ]]; then
     echo "Backing up $target to $target.bak..."
     mv "$target" "$target.bak"
@@ -66,6 +72,7 @@ backup_existing() {
 # Function to restore directories and files from .bak
 restore_backup() {
   local target="$1"
+
   if [[ -e "$target.bak" ]]; then
     echo "Restoring $target.bak to $target..."
     mv "$target.bak" "$target"
@@ -76,10 +83,22 @@ restore_backup() {
 for dir in "${DIRS[@]}"; do
   config_dir="$HOME/.config/${dir}"
   backup_existing "$config_dir"
+  #define widow style for alacritty depending on the OS
+  if [[ "$dir" == "alacritty" ]]; then
+    if [[ "$(uname)" == "Darwin" ]]; then
+      DECORATIONS="buttonless"
+    else
+      DECORATIONS="none"
+    fi
+    echo "[window]" >./alacritty/decoration.toml
+    echo "" >>./alacritty/decoration.toml
+    echo "decorations = '$DECORATIONS'" >>./alacritty/decoration.toml
+  fi
 done
 
 # Backup Zsh-related files in the home directory
 ZSH_FILES=(".zshrc" ".zlogin" ".zprofile" ".zshenv")
+
 for file in "${ZSH_FILES[@]}"; do
   zsh_file="$HOME/$file"
   backup_existing "$zsh_file"
@@ -121,6 +140,7 @@ for dir in "${DIRS[@]}"; do
     ;;
   esac
 done
+
 # Restore backups after unstow
 if [[ "$MODE" == "unstow" ]]; then
   # Restore directories in ~/.config/

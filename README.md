@@ -1,5 +1,40 @@
 # My dot files
 
+## Requirements
+
+- JetBrains Nerd Font is required for the icons to work properly. You can download it from [here](https://www.nerdfonts.com/font-downloads)
+
+You can install it with the following command:
+
+On MacOS:
+
+```Bash
+brew install --cask font-jetbrains-mono-nerd-font
+```
+
+On Linux:
+
+```Bash
+sudo unzip JetBrainsMono.zip -d /usr/share/fonts/JetBrainsNerdFont
+sudo fc-cache -fv
+```
+
+## Automatic Setup
+
+You can use `setup.sh` to automatically backup and symlink configuration files.
+
+> [!CAUTION]
+> Before executing the script, make sure you understand what it does!
+
+```Bash
+chmod +x setup.sh # Make the script executable
+./setup.sh
+```
+
+You can exclude some configurations by adding them to the `--ignore=<dirName>` option in the file `.stowrc`.
+
+## Manual Setup
+
 In order to symlink the files to the home directory, use the following command:
 
 ```Bash
