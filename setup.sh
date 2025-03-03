@@ -113,7 +113,7 @@ for dir in "${DIRS[@]}"; do
       # Symlink zsh files to home directory
       stow --verbose -t "$HOME/" "$dir"
     else
-      stow "$dir"
+      stow --verbose -t "$HOME/.config/${dir}" "$dir"
     fi
     ;;
   "restow")
@@ -122,7 +122,7 @@ for dir in "${DIRS[@]}"; do
       # Restow zsh files to home directory
       stow --restow --verbose -t "$HOME/" "$dir"
     else
-      stow --restow "$dir"
+      stow --restow --verbose -t "$HOME/.config/${dir}" "$dir"
     fi
     ;;
   "unstow")
@@ -131,7 +131,7 @@ for dir in "${DIRS[@]}"; do
       # Unstow zsh files from home directory
       stow --delete --verbose -t "$HOME/" "$dir"
     else
-      stow --delete "$dir"
+      stow --delete --verbose -t "$HOME/.config/${dir}" "$dir"
     fi
     ;;
   *)
