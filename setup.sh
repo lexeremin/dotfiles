@@ -111,7 +111,7 @@ for dir in "${DIRS[@]}"; do
     echo "Stowing $dir..."
     if [[ "$dir" == "zsh" ]]; then
       # Symlink zsh files to home directory
-      stow -t --verbose "$HOME" "$dir"
+      stow -t --verbose ~/ "$dir"
     else
       stow "$dir"
     fi
@@ -120,7 +120,7 @@ for dir in "${DIRS[@]}"; do
     echo "Restowing $dir..."
     if [[ "$dir" == "zsh" ]]; then
       # Restow zsh files to home directory
-      stow --restow --verbose -t "$HOME" "$dir"
+      stow --restow --verbose -t ~/ "$dir"
     else
       stow --restow "$dir"
     fi
@@ -128,8 +128,8 @@ for dir in "${DIRS[@]}"; do
   "unstow")
     echo "Unstowing $dir..."
     if [[ "$dir" == "zsh" ]]; then
-      # Unstow zsh files from ~/.config/zsh
-      stow --delete --verbose -t "$HOME" "$dir"
+      # Unstow zsh files from home directory
+      stow --delete --verbose -t ~/ "$dir"
     else
       stow --delete "$dir"
     fi
