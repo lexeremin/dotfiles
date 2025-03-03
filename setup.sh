@@ -94,6 +94,13 @@ for dir in "${DIRS[@]}"; do
     echo "" >>./alacritty/decoration.toml
     echo "decorations = '$DECORATIONS'" >>./alacritty/decoration.toml
   fi
+  if [[ "$dir" == "ghostty" ]]; then
+    if [[ "$(uname)" == "Darwin" ]]; then
+      echo "macos-titlebar-style = hidden" >./ghostty/macos
+    else
+      echo "window-decoration = false" >./ghostty/linux
+    fi
+  fi
 done
 
 # Backup Zsh-related files in the home directory

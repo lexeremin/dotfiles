@@ -1,4 +1,8 @@
 .DS_Store
 
 */decoration.toml
+*/macos
+*/linux
+*.zcompdump*
+*.zsh_history
 

@@ -3,7 +3,6 @@
 --ignore=DS_Store
 --ignore=leaves.txt
 --ignore=kitty
---ignore=wezterm
---ignore=manual_backup.sh
+--ignore=leaves
 --ignore=setup.sh
 
