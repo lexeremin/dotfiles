@@ -1,9 +1,6 @@
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # file management
 source <(fzf --zsh)
 
