@@ -111,7 +111,7 @@ for dir in "${DIRS[@]}"; do
     echo "Stowing $dir..."
     if [[ "$dir" == "zsh" ]]; then
       # Symlink zsh files to home directory
-      stow -t --verbose "$HOME/" "$dir"
+      stow --verbose -t "$HOME/" "$dir"
     else
       stow "$dir"
     fi
