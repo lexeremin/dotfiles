@@ -4,7 +4,6 @@ btop
 cmatrix
 cowsay
 deno
-exa
 eza
 fd
 ffmpeg
@@ -17,6 +16,7 @@ iamb
 iniparser
 kubectx
 lazygit
+lazydocker
 libtool
 lolcat
 luajit
