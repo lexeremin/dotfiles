@@ -1,8 +1,8 @@
-# My automated dot files setup
+# My automated dotfiles setup
 
 ## Requirements
 
-- JetBrains Nerd Font is required for the icons to work properly. You can download it from [here](https://www.nerdfonts.com/font-downloads) or you can use whatever font you like just don't forget to change all the config files, I might automate this part in the future.
+1. JetBrains Nerd Font is required for the icons to work properly. You can download it from [here](https://www.nerdfonts.com/font-downloads) or you can use whatever font you like just don't forget to change all the configuration files, I might automate this part in the future.
 
 You can install fonts with the following command:
 
@@ -20,7 +20,7 @@ sudo unzip JetBrainsMono.zip -d /usr/share/fonts/JetBrainsNerdFont
 sudo fc-cache -fv
 ```
 
-- Install packages, you don't need all of them, but most of them are required:
+2. Install packages, you don't need all of them, but most of them are required:
 
 On MacOS:
 
@@ -34,7 +34,7 @@ brew install < leaves/leaves.txt
 On Linux:
 
 > [!NOTE]
-> It will depend on your package manager, but most of the packages are available in the official repositories.
+> It will depend on your package manager, but most of the packages are available on all Linux distributions.
 
 ## Automated Setup
 
