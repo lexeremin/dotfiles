@@ -60,7 +60,7 @@ If you want to revert the changes and restore your configuration, you can use th
 ./setup.sh --unstow
 ```
 
-> ![NOTE]
+> [!NOTE]
 > It will also remove the `.zshenv` file that was created with the script. So if you previously had a `.zshenv` file it will be restored too.
 
 ## Manual Setup
