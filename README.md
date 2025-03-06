@@ -36,12 +36,13 @@ On Linux:
 > [!NOTE]
 > It will depend on your package manager, but most of the packages are available in the official repositories.
 
-## Automatic Setup
+## Automated Setup
 
 You can use `setup.sh` to automatically backup and symlink configuration files. It will backup your current configuration:
 
-- zsh files in the `$HOME` directory to and add `fileName.bak` to the end of all related files.
-- directories in the `$HOME/.config/` that interfere with the symlinking configuration and rename them to `dirName.bak`.
+- zsh files in the `$HOME` directory will be renamed to `fileName.bak` they will only be renamed if they exist.
+- directories in the `$HOME/.config/` that interfere with the symlinking configuration will be renamed to `dirName.bak`.
+- file `.zshenv` will be created in the `$HOME` directory with the content `ZDOTDIR=$HOME/.config/zsh`.
 
 > [!CAUTION]
 > Before executing the script, make sure you understand what it does!
@@ -58,6 +59,9 @@ If you want to revert the changes and restore your configuration, you can use th
 ```Bash
 ./setup.sh --unstow
 ```
+
+> ![NOTE]
+> It will also remove the `.zshenv` file that was created with the script. So if you previously had a `.zshenv` file it will be restored too.
 
 ## Manual Setup
 
