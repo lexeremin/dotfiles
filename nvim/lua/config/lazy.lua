@@ -31,7 +31,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "catppuccin", "tokyonight" } },
+  install = { colorscheme = { "catppuccin", "tokyonight", "e-ink" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
   }, -- automatically check for plugin updates
@@ -42,7 +42,7 @@ require("lazy").setup({
         "gzip",
         -- "matchit",
         -- "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         -- "tutor",

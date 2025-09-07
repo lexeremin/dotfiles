@@ -6,8 +6,8 @@
 vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", { noremap = false })
 
--- twilight
-vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", { noremap = false })
+-- twilight (mapping provided by plugin spec if installed)
+-- vim.keymap.set("n", "tw", "<cmd>Twilight<cr>", { noremap = true, silent = true, desc = "Twilight toggle" })
 
 -- buffers
 vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", { noremap = false })
@@ -28,8 +28,8 @@ vim.api.nvim_set_keymap("n", "<C-W>.", ":vertical resize +10<CR>", { noremap = t
 -- Quicker close split
 vim.keymap.set("n", "<leader>qq", ":q<CR>", { silent = true, noremap = true })
 
--- nvim-tree binds
-vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- neo-tree toggle
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { noremap = true, silent = true, desc = "Neo-tree toggle" })
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })

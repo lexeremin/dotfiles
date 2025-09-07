@@ -5,13 +5,16 @@ import = [
   # "~/.config/alacritty/catppuccin-latte.toml",
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"
-  "~/.config/alacritty/catppuccin-mocha.toml",
+  # "~/.config/alacritty/catppuccin-mocha.toml",
+  "~/.config/alacritty/eink.toml",
   "~/.config/alacritty/decoration.toml",
 ]
+
 
 [env]
 
 TERM = "xterm-256color"
+# TERM = "alacritty"
 
 [terminal]
 
@@ -19,7 +22,7 @@ shell = { program = "zsh", args = ["-l"] }
 
 [window]
 
-opacity = 0.4
+opacity = 0.9
 blur = true
 
 [font]

@@ -1,1 +1,1 @@
-fortune | cowsay -f moose | lolcat
+fortune | cowsay -f moose

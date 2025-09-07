@@ -2,6 +2,8 @@
   "extras": [
     "lazyvim.plugins.extras.ai.codeium",
     "lazyvim.plugins.extras.ai.copilot",
+    "lazyvim.plugins.extras.ai.copilot-chat",
+    "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.formatting.prettier",
@@ -17,8 +19,9 @@
     "lazyvim.plugins.extras.linting.eslint",
     "lazyvim.plugins.extras.util.dot"
   ],
+  "install_version": 7,
   "news": {
     "NEWS.md": "10960"
   },
-  "version": 7
+  "version": 8
 }

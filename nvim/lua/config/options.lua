@@ -26,7 +26,7 @@ vim.o.smartcase = true
 -- Disable the concealing in some file formants
 -- default conceallevel is 3
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "jsonc", "markdown" },
+  pattern = { "json", "jsonc" },
   callback = function()
     vim.wo.conceallevel = 0
   end,

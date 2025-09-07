@@ -1,0 +1,449 @@
+nvim .dotfiles
+cd .dotfiles
+git pull
+ls
+la
+nvim .
+nvim
+nvim .
+nvim 
+nvim .
+nvim
+nvim .
+./setup.sh --unstow
+cd ..
+rm -rf .dotfiles
+git clone git@github.com:lexeremin/dotfiles.git
+cd dotfiles
+ls
+./setup.sh
+nvim .
+nvim .
+cd ..
+mv .local/share/nvim .local/share/nvim.bak2
+mv .local/state/nvim .local/state/nvim.bak2
+mv .cache/nvim .cache/nvim.bak
+cd dotfiles
+nvim .
+nvim 
+nvim .
+nvim .
+nvim .
+nvim dotfiles
+cd dotfiles
+nvim 
+nvim nvim
+nvim nvim
+cd ..
+brew update
+brew upgrade
+cdw
+cdd
+nvim .
+mkdir wearevaer
+cd wearevaer
+echo "# Wearevaer" > README.md
+git init
+la
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/lexeremin/wearevaer.git
+git push -u origin main
+npx create-next-app@latest\
+\
+\
+
+rm README.md
+npx create-next-app@latest\
+\
+\
+
+nvim .
+nvim .
+nvim .
+nvim .
+ping google.com
+nvim .
+nvim .
+la
+nvim .
+lazygit
+nvim .
+nvim 
+nvim
+iperf3 -s\
+
+nvim dotfiles
+nvim
+nvim
+nvim dotfiles
+nvim dotfiles
+nvim dotfiles
+nvim
+nvim dotfiles
+nvim dotfiles
+cdw
+ls
+cdd
+ls
+cd wearevaer
+nvim .
+nvim .
+lazygit
+brew install --cask cursor
+brew install --cask cursor
+cursor
+la
+mkdir -p ~/Library/Application\ Support/Cursor/User/
+cp ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+mkdir -p ~/Library/Application\ Support/Cursor/User/\
+
+cp ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
+defaults write com.cursor.Cursor NSWindowSupportsAutomaticWindowTabbing -bool false
+nvim 
+cdd
+cd wearevaer
+nvim .
+ls
+brew list
+brew uninstall firefox@nightly
+brew list
+brew search rectangle
+brew list
+la
+brew update
+cdd
+cd wearevaer
+nvim .
+brew updtae
+brew update
+brew upgrade
+ brew update
+ brew upgrade
+brew search trae
+man brew
+brew install trae
+brew update
+b
+brew install trae
+brew search davinci
+nvim .
+brew install --cask freecad
+nvim .
+brew update
+brew update
+brew upgrade
+cd Downloads
+touch korean_photography_vocab.csv
+nvim korean_photography_vocab.csv
+nvim korean_photography_vocab.csv
+brew list
+brew search amnezia
+brew install --cask amneziavpn
+brew install --cask amneziavpn
+brew update
+brew upgrade
+brew update
+brew upgrade
+cdd
+ls
+cd wearevaer
+git checkout main
+ls
+npm run dev
+cd ..
+mkdir test
+cd test
+npx shadcn@latest add "https://v0.dev/chat/b/b_9qstuYvzG7A?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..EcbJ1cuPoCUOjGwi.SII0SdWDI9hzw6kv7Egshb-ZQwm3oWRyh9wThIMB9u4oNBelRnGA4BNHNEY.UNCeeibg-_q_zxmg68dUlA"
+cd ..
+cd wearevaer
+npx shadcn@latest add "https://v0.dev/chat/b/b_9qstuYvzG7A?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..EcbJ1cuPoCUOjGwi.SII0SdWDI9hzw6kv7Egshb-ZQwm3oWRyh9wThIMB9u4oNBelRnGA4BNHNEY.UNCeeibg-_q_zxmg68dUlA"
+npm run dev
+npm i tailwindcss-animate
+npm run dev
+nvim .
+npm run dev
+nvim .
+npx shadcn@latest add "https://v0.dev/chat/b/b_9qstuYvzG7A?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..F_0i0KUc_mJhyubT.lyVBy7qTAh8B4FWu4oHHmqfw8o7Cx2NpfRM1_jeNidOaXuvBmDJwU7pQEMg.MtlLTXS4BOcDs7jMRrCk_A"
+npx shadcn@latest add "https://v0.dev/chat/b/b_9qstuYvzG7A?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..F_0i0KUc_mJhyubT.lyVBy7qTAh8B4FWu4oHHmqfw8o7Cx2NpfRM1_jeNidOaXuvBmDJwU7pQEMg.MtlLTXS4BOcDs7jMRrCk_A"
+npx shadcn@latest add "https://v0.dev/chat/b/b_9qstuYvzG7A?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..F_0i0KUc_mJhyubT.lyVBy7qTAh8B4FWu4oHHmqfw8o7Cx2NpfRM1_jeNidOaXuvBmDJwU7pQEMg.MtlLTXS4BOcDs7jMRrCk_A"
+nvim .
+npm install
+nvim .
+next dev
+ls
+npm next dev
+la
+npm install
+ping google.com
+npm install
+npm install
+npx shadcn@latest add "https://v0.dev/chat/b/b_9qstuYvzG7A?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..CteY7ihV0uvx_-et.UDbdK8ZT0rNeKQS7qTn6T3KwIcg5i-oX2pxw85jcJi0MT_ehyUy3qB-gKNQ.qHMHoxcA0a2lSQ5t_3gE4w"
+ls
+cd ..
+ls
+npx create-next-app@latest vaer-family
+cdd
+npx create-next-app@latest vaer-family
+cdd
+ls
+cd vaer-family
+ls
+cd ..
+rm -rf vaer-family
+npx create-next-app@latest vaer-family
+la
+npx create-next-app@latest vaer-family
+cd vaer-family
+npm install lucide-react
+npm run dev
+npm install next-themes
+npm install next-themes
+npm install next-themes
+cdd
+la
+cd vaer-family
+npm install @radix-ui/react-tabs @radix-ui/react-checkbox @radix-ui/react-select @radix-ui/react-radio-group @radix-ui/react-dialog tailwindcss-animate
+npm install next-themes
+npm install --force next-themes
+npm run dev
+cd ..
+cd wearevaer
+ls
+npm run dev
+npm install
+npm install --force
+npm run dev
+la
+lazygit
+brew update
+brew update
+brew upgrade
+brew upgrade
+brew update
+brew upgrade
+brew upgrade
+brew upgrade
+brew remove amneziavpn
+brew install --cask amneziavpn
+brew update
+brew update
+brew update
+cdd
+cd wearevaer
+npm install @hookform/resolvers zod react-hook-form
+npm install --force @hookform/resolvers zod react-hook-form
+brew update
+la
+npm run dev
+npm run dev
+nvim .
+git add .
+lazygit
+s
+lazygit
+brew update 
+brew update
+brew update
+brew update
+nvim .
+brew update
+brew upgrade
+brew update
+brew upgrade
+ssh root@91.149.241.116
+ssh root@91.149.241.116
+ssh root@91.149.241.116
+ssh root@103.110.65.208
+ssh root@103.110.65.208
+ssh root@185.65.105.25
+ssh root@185.65.105.25
+brew update
+brew upgrade
+brew list
+brew remove amneziavpn
+brew update
+brew upgrade
+brew update
+cdd
+ls
+cd wearevaer
+npm run dev
+npm install -g npm@11.4.1
+node -v
+npm -v
+cdd
+ cd wearevaer
+ls
+nvim .
+lazygit
+git add .
+git status
+git commit -m "Changed trademark and removed some template data"
+git push
+nvim .
+git add .
+git commit -m "Changed trademark more trademark data"
+git push
+nvim .
+git add .
+git commit -m "Changed footer data"
+git push
+cdd
+cd 
+cd wearevaer
+cdd
+cd wearevaer
+ls
+git add .
+git status
+nvim .
+git add .
+git status
+git add .
+git status
+git commit -m "removed about info and added links to the footer"
+git push
+brew update
+brew upgrade
+diskutil list\
+
+
+diskutil info /dev/disk10s1 | grep "Mount Point"
+ls /Volumes\
+
+sudo  lsof +D "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -Ei off "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -i off "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -X /Volumes/Samsung\ SSD\ 990\ PRO\ 4TB
+sudo mdutil -i on "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -X /Volumes/Samsung\ SSD\ 990\ PRO\ 4TB
+sudo mdutil -i on "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -s "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -s "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -i on "/Volumes/Samsung SSD 990 PRO 4TB"
+sudo mdutil -i off "/Volumes/Samsung SSD 990 PRO 4TB"
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+ssh root@192.168.1.113
+la
+cd .ssh
+la
+nvim known_hosts
+cdw
+ssh root@192.168.1.113
+ls
+ssh root@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+nvim known_hosts
+nvim .ssh/known_hosts
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+ssh hansol@192.168.1.113
+brew update
+brew upgrade
+nvim
+nvim
+brew update
+brew update
+brew update
+brew upgrade
+btop
+brew update
+brew upgreade
+brew upgrade
+brew update
+brew upgrade
+curl -fsSL https://raw.githubusercontent.com/xvzc/SpoofDPI/main/install.sh | bash -s darwin-arm64
+spoofdpi
+brew list zen
+brew update
+brew update
+brew upgrade
+cdd
+la
+git clone git@github.com:lexeremin/lexeremin.com.git
+la
+cd lexeremin.com
+npm run dev
+npm install
+# Install required packages\
+npm install\
+\
+# Install additional UI components (if not already included)\
+npm install @radix-ui/react-accordion @radix-ui/react-alert-dialog @radix-ui/react-avatar @radix-ui/react-card @radix-ui/react-dropdown-menu @radix-ui/react-input @radix-ui/react-textarea\
+npm install lucide-react\
+npm install class-variance-authority clsx tailwind-merge
+npm install
+# Clear any existing node_modules and package-lock.json\
+rm -rf node_modules package-lock.json\
+\
+# Install with legacy peer deps flag\
+npm install --legacy-peer-deps
+npm run dev
+git add .
+git commit -m "completely redesigned my website"
+git push
+nvim .
+cd lexeremin.com
+cdd
+cd lexeremin.com
+nvim .
+nvim .
+npm run dev
+nvim .
+cursor .
+npm run dev
+npm run dev
+git add .
+git commit -m "changed font"
+git push
+cdd
+cd lexeremin.com
+cursor .
+ollama
+ollma list
+ollama list
+nvim .
+nvim
+brew update
+brew upgrade
+cdd
+cd lexeremin.com
+npm run dev
+npm run dev
+code .
+cursor .
+git add .
+git commit -m "added small changes to terminal page"
+git push
+cdd
+cd lexeremin.com
+npm run dev
+git add .
+git commit -m "changed profile photo"
+git push
+git push
+npm run dev
+git add .
+git commit -m "added changes to profile photo"
+git push
+brew update
+brew upgrade

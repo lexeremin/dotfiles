@@ -21,7 +21,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      inlay_hints = { enabled = false },
+      inlay_hints = { enabled = true },
       ---@type lspconfig.options
       servers = {
         cssls = {},
@@ -30,11 +30,8 @@ return {
             return require("lspconfig.util").root_pattern(".git")(...)
           end,
         },
-        tsserver = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-          single_file_support = false,
+        tsserver = false,
+        vtsls = {
           settings = {
             typescript = {
               inlayHints = {
