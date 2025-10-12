@@ -61,3 +61,18 @@ fi
 if [[ $(uname) == "Darwin" ]]; then
   export PATH="$PATH:/Users/$(whoami)/.lmstudio/bin"
 fi
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+if [[ $(uname) == "Darwin" ]]; then
+  fpath=("/Users/$(whoami)/.docker/completions" $fpath)
+  autoload -Uz compinit
+  compinit
+fi
+# End of Docker CLI completions
+
+# OpenJDK 21 for mac
+if [[ $(uname) == "Darwin" ]]; then
+  export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+  export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home/"
+fi
+

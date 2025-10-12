@@ -1,0 +1,16 @@
+{
+  "name": "My E-Ink Ghostty Light Theme",
+  "version": "1.0",
+  "manifest_version": 2,
+  "theme": {
+    "colors": {
+      "frame": [220, 220, 220],
+      "toolbar": [220, 220, 220],
+      "ntp_text": [26, 26, 26],
+      "ntp_link": [11, 71, 168],
+      "ntp_section": [220, 220, 220],
+      "ntp_section_text": [26, 26, 26],
+      "button_background": [220, 220, 220, 0.5]
+    }
+  }
+}
