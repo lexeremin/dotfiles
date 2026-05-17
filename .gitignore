@@ -5,5 +5,5 @@
 */linux
 *.zcompdump*
 *.zsh_history
-*.zcompcache
+.zcompcache
 *.zsh_sessions

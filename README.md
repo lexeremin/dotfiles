@@ -2,86 +2,134 @@
 
 ## Requirements
 
-1. JetBrains Nerd Font is required for the icons to work properly. You can download it from [here](https://www.nerdfonts.com/font-downloads) or you can use whatever font you like just don't forget to change all the configuration files, I might automate this part in the future.
+### 1. JetBrainsMono Nerd Font
 
-You can install fonts with the following command:
+Required for icons and glyphs to render correctly across all terminal and editor configs.
 
-On MacOS:
+> [!NOTE]
+> If you use `install.sh`, the font is installed automatically. The commands below are for manual installation only.
 
-```Bash
+**macOS:**
+
+```bash
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-On Linux:
+**Linux:**
 
-```Bash
-wget YourLinkToFont
-sudo unzip JetBrainsMono.zip -d /usr/share/fonts/JetBrainsNerdFont
+```bash
+wget -O /tmp/JetBrainsMono.zip \
+  https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+sudo mkdir -p /usr/share/fonts/JetBrainsNerdFont
+sudo unzip /tmp/JetBrainsMono.zip -d /usr/share/fonts/JetBrainsNerdFont
 sudo fc-cache -fv
 ```
 
-2. Install packages, you don't need all of them, but most of them are required:
+### 2. Packages
 
-On MacOS:
+Run `install.sh` — it detects your OS and installs everything automatically:
 
-```Bash
-# if you want to make a backup of currently installed packages
-brew leaves > leaves.txt
-# Required packages
-brew install < leaves/leaves.txt
+```bash
+chmod +x install.sh
+./install.sh
 ```
 
-On Linux:
+Supported systems and what the script uses:
 
-> [!NOTE]
-> It will depend on your package manager, but most of the packages are available on all Linux distributions.
+| OS | Package manager | Notes |
+|---|---|---|
+| macOS | Homebrew | [`leaves/leaves.txt`](leaves/leaves.txt) |
+| Arch Linux | pacman | [`leaves/packages-arch.txt`](leaves/packages-arch.txt) |
+| Fedora | dnf | [`leaves/packages-fedora.txt`](leaves/packages-fedora.txt) |
+| Ubuntu | apt | [`leaves/packages-ubuntu.txt`](leaves/packages-ubuntu.txt) |
+
+On Fedora and Ubuntu, packages not available in official repos (starship, lazygit, eza, yazi) are installed automatically from their official release channels.
+
+---
 
 ## Automated Setup
 
-You can use `setup.sh` to automatically backup and symlink configuration files. It will backup your current configuration:
+`setup.sh` backs up your existing config and symlinks everything using GNU Stow.
 
-- zsh files in the `$HOME` directory will be renamed to `fileName.bak` they will only be renamed if they exist.
-- directories in the `$HOME/.config/` that interfere with the symlinking configuration will be renamed to `dirName.bak`.
-- file `.zshenv` will be created in the `$HOME` directory with the content `ZDOTDIR=$HOME/.config/zsh`.
+What it does:
+- Backs up any existing files/directories in `~/.config/` that would conflict (renamed to `.bak`)
+- Backs up zsh files in `$HOME` (`.zshrc`, `.zlogin`, `.zprofile`, `.zshenv`)
+- Creates `~/.zshenv` with `ZDOTDIR=$HOME/.config/zsh`
+- Generates platform-specific config files for Alacritty (window decorations) and Ghostty (titlebar style)
+- Symlinks all config directories into `~/.config/` via `stow`
 
 > [!CAUTION]
-> Before executing the script, make sure you understand what it does!
+> Read the script before running it so you know what gets moved.
 
-```Bash
-chmod +x setup.sh # Make the script executable
+```bash
+chmod +x setup.sh
 ./setup.sh
 ```
 
-You can exclude some configurations by adding them to the `--ignore=<dirName>` option in the file `.stowrc`. By default some configurations are disabled in the `.stowrc` file. To enable them, remove the `--ignore=<folders>` option.
+**Update symlinks** after adding new configs:
 
-If you want to revert the changes and restore your configuration, you can use the following command:
+```bash
+./setup.sh --restow
+```
 
-```Bash
+**Revert everything** and restore backups:
+
+```bash
 ./setup.sh --unstow
 ```
 
-> [!NOTE]
-> It will also remove the `.zshenv` file that was created with the script. So if you previously had a `.zshenv` file it will be restored too.
+To exclude a config from being symlinked, add `--ignore=<dirName>` to `.stowrc`.
+
+---
 
 ## Manual Setup
 
-In order to symlink files to the configuration directory `$HOME/.config/`, use the following command:
+### Step 1 — Clone the repo
 
-```Bash
+```bash
+git clone <your-repo-url> ~/dotfiles
+cd ~/dotfiles
+```
+
+### Step 2 — Install the font
+
+See the [font section](#1-jetbrainsmono-nerd-font) above.
+
+### Step 3 — Install packages
+
+Either run `install.sh` (recommended) or install manually using the appropriate list for your distro from the `leaves/` directory:
+
+```bash
+# macOS
+brew install $(cat leaves/leaves.txt | tr '\n' ' ')
+
+# Arch
+sudo pacman -S --needed $(cat leaves/packages-arch.txt | tr '\n' ' ')
+
+# Fedora
+sudo dnf install -y $(cat leaves/packages-fedora.txt | tr '\n' ' ')
+
+# Ubuntu
+sudo apt install -y $(cat leaves/packages-ubuntu.txt | tr '\n' ' ')
+```
+
+> [!NOTE]
+> On Fedora and Ubuntu, starship, lazygit, eza, and yazi are not in the package lists above — install them manually or use `install.sh` which handles them automatically.
+
+### Step 4 — Symlink configs
+
+Run `setup.sh` for the full automated setup, or use stow directly:
+
+```bash
+# Symlink everything
 stow .
+
+# Symlink a single config
+stow --target ~/.config --dotfiles <dirName>
 ```
 
-If you want to copy one by one use:
+### Step 5 — Restart your shell
 
-```Bash
-stow --targer ~/.config --dotfiles dirName
-```
-
-Install packages with brew, you don't need all of them, but most of them are required:
-
-```Bash
-# Make a backup of the installed packages
-brew leaves > leaves.txt
-# Fresh installation
-brew install < leaves.txt
+```bash
+exec zsh
 ```

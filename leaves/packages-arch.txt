@@ -3,7 +3,7 @@ cmatrix
 cowsay
 eza
 fd
-fortune
+fortune-mod
 fzf
 git
 go
@@ -13,7 +13,7 @@ luajit
 luarocks
 neofetch
 neovim
-pstree
+psmisc
 ripgrep
 starship
 stow
