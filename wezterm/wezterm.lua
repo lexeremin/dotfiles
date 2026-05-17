@@ -11,8 +11,8 @@ local config = wezterm.config_builder()
 config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = 'Dracula (Official)'
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 17
-config.window_background_opacity = 0.6
+config.font_size = 16
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 30
 -- config.text_background_opacity = 0.9
 -- UI changes

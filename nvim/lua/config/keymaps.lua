@@ -35,8 +35,6 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
--- Neorg plugin
-vim.api.nvim_set_keymap("n", "<leader>nn", "<Plug>(neorg.dirman.new-note)", { noremap = true })
 -- comments
 -- vim.keymap.set({ "n", "v" }, "<leader>/", ":CommentToggle<cr>")
 
