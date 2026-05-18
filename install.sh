@@ -32,7 +32,37 @@ install_font_linux() {
   rm -rf "$tmp"
 }
 
+# ── Arch helpers ─────────────────────────────────────────────────────────────
+
+install_paru() {
+  if command -v paru &>/dev/null; then
+    echo "paru already installed, skipping."
+    return
+  fi
+  echo "Installing paru (AUR helper)..."
+  sudo pacman -S --needed base-devel git
+  local tmp
+  tmp=$(mktemp -d)
+  git clone https://aur.archlinux.org/paru.git "$tmp/paru"
+  (cd "$tmp/paru" && makepkg -si --noconfirm)
+  rm -rf "$tmp"
+}
+
 # ── Manual install helpers (Fedora / Ubuntu) ─────────────────────────────────
+
+install_stow_fedora() {
+  if command -v stow &>/dev/null; then
+    echo "stow already installed, skipping."
+    return
+  fi
+  echo "Installing stow from source..."
+  local version="2.4.1"
+  local tmp
+  tmp=$(mktemp -d)
+  curl -sL "https://ftp.gnu.org/gnu/stow/stow-${version}.tar.gz" | tar -xz -C "$tmp"
+  (cd "$tmp/stow-${version}" && ./configure && make && sudo make install)
+  rm -rf "$tmp"
+}
 
 install_starship() {
   if command -v starship &>/dev/null; then
@@ -145,6 +175,7 @@ install_macos() {
 
 install_arch() {
   install_font_linux
+  install_paru
   echo "Installing packages via pacman..."
   # shellcheck disable=SC2046
   sudo pacman -S --needed $(grep -v '^\s*$' "$LEAVES_DIR/packages-arch.txt" | tr '\n' ' ')
@@ -156,6 +187,7 @@ install_fedora() {
   # shellcheck disable=SC2046
   sudo dnf install -y $(grep -v '^\s*$' "$LEAVES_DIR/packages-fedora.txt" | tr '\n' ' ')
 
+  install_stow_fedora
   install_starship
   install_lazygit
   install_eza_fedora

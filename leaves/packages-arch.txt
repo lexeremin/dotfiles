@@ -6,12 +6,11 @@ fd
 fortune-mod
 fzf
 git
-go
+fastfetch
 lazygit
 lolcat
 luajit
 luarocks
-neofetch
 neovim
 psmisc
 ripgrep
