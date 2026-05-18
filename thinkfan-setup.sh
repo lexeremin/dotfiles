@@ -130,13 +130,13 @@ fans:
 # Fan levels 0–7 map to the firmware speed steps; 7 is maximum.
 # Format: [level, low_°C, high_°C]
 levels:
-  - [0,  0,  52]   # off at idle
-  - [1, 50,  57]
-  - [2, 55,  62]
-  - [3, 60,  67]
-  - [4, 65,  72]
-  - [5, 70,  78]
-  - [7, 75, 32767]  # max from 75°C onwards
+  - [0,  0,  60]   # off at idle
+  - [1, 57,  65]
+  - [2, 63,  70]
+  - [3, 68,  75]
+  - [4, 73,  80]
+  - [5, 78,  85]
+  - [7, 83, 32767]  # max from 83°C onwards
 EOF
 }
 
