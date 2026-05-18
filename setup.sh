@@ -110,6 +110,9 @@ apply_theme() {
 
   # Name-based: patch single-line theme references in dotfiles configs
   sed -i '' "s/^theme = .*/theme = $ghostty_theme/" ghostty/config
+  # Also patch the live ghostty config in case it isn't stow-symlinked
+  [[ -f ~/.config/ghostty/config ]] && \
+    sed -i '' "s/^theme = .*/theme = $ghostty_theme/" ~/.config/ghostty/config
   sed -i '' "s/^palette = .*/palette = \"$starship_palette\"/" starship/starship.toml
   sed -i '' 's/colorscheme = "[^"]*"/colorscheme = "'"$nvim_colorscheme"'"/' \
     nvim/lua/plugins/colorscheme.lua
