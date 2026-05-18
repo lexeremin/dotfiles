@@ -24,7 +24,9 @@ detect_os() {
     id=$(grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"')
     case "$id" in
       arch)   echo "arch" ;;
-      fedora) echo "fedora" ;;
+      fedora)
+        if [[ -f /run/ostree-booted ]]; then echo "fedora-atomic"
+        else echo "fedora"; fi ;;
       ubuntu) echo "ubuntu" ;;
       *)      echo "unsupported:$id" ;;
     esac
@@ -53,6 +55,14 @@ install_thinkfan() {
       ;;
     fedora)
       sudo dnf install -y thinkfan
+      ;;
+    fedora-atomic)
+      # rpm-ostree stages the install — it won't be live until after reboot.
+      # The rest of the setup (modprobe, config, service) must run post-reboot.
+      rpm-ostree install thinkfan
+      echo ""
+      echo "thinkfan staged via rpm-ostree. Reboot, then rerun this script to complete setup."
+      exit 0
       ;;
     ubuntu)
       sudo apt update
@@ -166,7 +176,7 @@ OS=$(detect_os)
 
 if [[ "$OS" == unsupported* ]]; then
   echo "Unsupported OS: ${OS#unsupported:}"
-  echo "Supported: Arch, Fedora, Ubuntu"
+  echo "Supported: Arch, Fedora, Fedora Atomic, Ubuntu"
   exit 1
 fi
 

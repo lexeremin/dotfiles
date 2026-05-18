@@ -26,9 +26,20 @@ install_font_linux() {
   tmp=$(mktemp -d)
   wget -qO "$tmp/JetBrainsMono.zip" \
     "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
-  sudo mkdir -p /usr/share/fonts/JetBrainsNerdFont
-  sudo unzip -q "$tmp/JetBrainsMono.zip" -d /usr/share/fonts/JetBrainsNerdFont
-  sudo fc-cache -fv
+
+  # On Atomic, /usr/share/fonts is read-only and wiped on OS updates.
+  # Install to ~/.local/share/fonts instead — no root needed, survives updates.
+  if [[ "${1:-}" == "atomic" ]]; then
+    local font_dir="$HOME/.local/share/fonts/JetBrainsNerdFont"
+    mkdir -p "$font_dir"
+    unzip -q "$tmp/JetBrainsMono.zip" -d "$font_dir"
+    fc-cache -fv
+  else
+    sudo mkdir -p /usr/share/fonts/JetBrainsNerdFont
+    sudo unzip -q "$tmp/JetBrainsMono.zip" -d /usr/share/fonts/JetBrainsNerdFont
+    sudo fc-cache -fv
+  fi
+
   rm -rf "$tmp"
 }
 
@@ -151,7 +162,9 @@ detect_os() {
     id=$(grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"')
     case "$id" in
       arch)   echo "arch" ;;
-      fedora) echo "fedora" ;;
+      fedora)
+        if [[ -f /run/ostree-booted ]]; then echo "fedora-atomic"
+        else echo "fedora"; fi ;;
       ubuntu) echo "ubuntu" ;;
       *)      echo "unsupported:$id" ;;
     esac
@@ -181,8 +194,24 @@ install_arch() {
   sudo pacman -S --needed $(grep -v '^\s*$' "$LEAVES_DIR/packages-arch.txt" | tr '\n' ' ')
 }
 
+install_fedora_atomic() {
+  install_font_linux atomic
+  echo "Installing packages via rpm-ostree..."
+  # shellcheck disable=SC2046
+  rpm-ostree install $(grep -v '^\s*$' "$LEAVES_DIR/packages-fedora-atomic.txt" | tr '\n' ' ')
+
+  install_stow_fedora
+  install_starship
+  install_lazygit
+  install_eza_fedora
+  install_yazi
+
+  echo ""
+  echo "rpm-ostree changes are staged — reboot to apply layered packages."
+}
+
 install_fedora() {
-  install_font_linux
+  install_font_linux standard
   echo "Installing packages via dnf..."
   # shellcheck disable=SC2046
   sudo dnf install -y $(grep -v '^\s*$' "$LEAVES_DIR/packages-fedora.txt" | tr '\n' ' ')
@@ -216,7 +245,8 @@ OS=$(detect_os)
 case "$OS" in
   macos)   install_macos ;;
   arch)    install_arch ;;
-  fedora)  install_fedora ;;
+  fedora)         install_fedora ;;
+  fedora-atomic)  install_fedora_atomic ;;
   ubuntu)  install_ubuntu ;;
   *)
     echo "Unsupported OS: ${OS#unsupported:}"

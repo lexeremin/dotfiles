@@ -1,16 +1,23 @@
 {
-  "name": "My E-Ink Ghostty Light Theme",
+  "name": "md-paper",
   "version": "1.0",
   "manifest_version": 2,
   "theme": {
     "colors": {
-      "frame": [220, 220, 220],
-      "toolbar": [220, 220, 220],
-      "ntp_text": [26, 26, 26],
-      "ntp_link": [11, 71, 168],
-      "ntp_section": [220, 220, 220],
-      "ntp_section_text": [26, 26, 26],
-      "button_background": [220, 220, 220, 0.5]
+      "frame":                          [208, 203, 195],
+      "frame_inactive":                 [208, 203, 195],
+      "toolbar":                        [224, 219, 211],
+      "background_tab":                 [224, 219, 211],
+      "background_tab_inactive":        [208, 203, 195],
+      "tab_background_text":            [88,  83,  76],
+      "tab_background_text_inactive":   [133, 127, 120],
+      "bookmark_text":                  [97,  92,  86],
+      "toolbar_button_icon":            [97,  92,  86],
+      "ntp_background":                 [224, 219, 211],
+      "ntp_text":                       [88,  83,  76],
+      "ntp_link":                       [88,  83,  76],
+      "ntp_section":                    [216, 211, 203],
+      "ntp_section_text":               [88,  83,  76]
     }
   }
 }

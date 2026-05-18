@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "md-paper",
+  "version": "1.0",
+  "theme": {
+    "colors": {
+      "frame":                       "#C8C3BB",
+      "frame_inactive":              "#C8C3BB",
+      "tab_background_text":         "#857F78",
+      "tab_text":                    "#58534C",
+      "tab_line":                    "#6B9AB8",
+      "tab_loading_fill":            "#6B9AB8",
+      "toolbar":                     "#E0DBD3",
+      "toolbar_text":                "#58534C",
+      "toolbar_field":               "#D0CBC3",
+      "toolbar_field_text":          "#58534C",
+      "toolbar_field_border":        "#D0CBC3",
+      "toolbar_field_focus":         "#E0DBD3",
+      "toolbar_field_text_focus":    "#58534C",
+      "toolbar_field_border_focus":  "#6B9AB8",
+      "toolbar_top_separator":       "#C8C3BB",
+      "toolbar_bottom_separator":    "#C8C3BB",
+      "toolbar_vertical_separator":  "#C8C3BB",
+      "button_background_hover":     "#C8C3BB",
+      "button_background_active":    "#BDB8B0",
+      "popup":                       "#E8E4DC",
+      "popup_text":                  "#58534C",
+      "popup_border":                "#C8C3BB",
+      "popup_highlight":             "#C8C3BB",
+      "popup_highlight_text":        "#58534C",
+      "sidebar":                     "#E0DBD3",
+      "sidebar_text":                "#58534C",
+      "sidebar_highlight":           "#C8C3BB",
+      "sidebar_highlight_text":      "#58534C",
+      "sidebar_border":              "#C8C3BB",
+      "ntp_background":              "#E0DBD3",
+      "ntp_text":                    "#58534C"
+    }
+  }
+}

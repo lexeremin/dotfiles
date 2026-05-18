@@ -15,7 +15,7 @@ Required for icons and glyphs to render correctly across all terminal and editor
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-**Linux:**
+**Linux (standard):**
 
 ```bash
 wget -O /tmp/JetBrainsMono.zip \
@@ -23,6 +23,16 @@ wget -O /tmp/JetBrainsMono.zip \
 sudo mkdir -p /usr/share/fonts/JetBrainsNerdFont
 sudo unzip /tmp/JetBrainsMono.zip -d /usr/share/fonts/JetBrainsNerdFont
 sudo fc-cache -fv
+```
+
+**Linux (Fedora Atomic / immutable):**
+
+```bash
+wget -O /tmp/JetBrainsMono.zip \
+  https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+mkdir -p ~/.local/share/fonts/JetBrainsNerdFont
+unzip /tmp/JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsNerdFont
+fc-cache -fv
 ```
 
 ### 2. Packages
@@ -36,14 +46,18 @@ chmod +x install.sh
 
 Supported systems and what the script uses:
 
-| OS | Package manager | Notes |
+| OS | Package manager | Package list |
 |---|---|---|
 | macOS | Homebrew | [`leaves/leaves.txt`](leaves/leaves.txt) |
 | Arch Linux | pacman | [`leaves/packages-arch.txt`](leaves/packages-arch.txt) |
 | Fedora | dnf | [`leaves/packages-fedora.txt`](leaves/packages-fedora.txt) |
+| Fedora Atomic | rpm-ostree | [`leaves/packages-fedora-atomic.txt`](leaves/packages-fedora-atomic.txt) |
 | Ubuntu | apt | [`leaves/packages-ubuntu.txt`](leaves/packages-ubuntu.txt) |
 
 On Fedora and Ubuntu, packages not available in official repos (starship, lazygit, eza, yazi) are installed automatically from their official release channels.
+
+> [!NOTE]
+> On **Fedora Atomic**, `rpm-ostree` stages package installs — a reboot is required before they take effect. Binary installs (starship, lazygit, eza, yazi, stow) are applied immediately to `/usr/local/bin` and don't need a reboot. The font is installed to `~/.local/share/fonts` instead of `/usr/share/fonts` since the system font directory is read-only and wiped on OS updates.
 
 ---
 
@@ -109,6 +123,9 @@ sudo pacman -S --needed $(cat leaves/packages-arch.txt | tr '\n' ' ')
 # Fedora
 sudo dnf install -y $(cat leaves/packages-fedora.txt | tr '\n' ' ')
 
+# Fedora Atomic
+rpm-ostree install $(cat leaves/packages-fedora-atomic.txt | tr '\n' ' ')
+
 # Ubuntu
 sudo apt install -y $(cat leaves/packages-ubuntu.txt | tr '\n' ' ')
 ```
@@ -136,12 +153,32 @@ exec zsh
 
 ---
 
+## Colorscheme
+
+All terminals, Neovim, tmux, and Starship share a unified **e-ink** palette inspired by [Traveler's Notebook MD paper](https://www.midori-japan.co.jp/md/) — warm off-white background, graphite-pencil text, and four muted accent colors.
+
+| Role | Hex | Vibe |
+|------|-----|------|
+| Background | `#E0DBD3` | MD paper warm gray |
+| Foreground | `#58534C` | graphite pencil (~6:1 contrast) |
+| Selection | `#C8C3BB` | soft highlight |
+| Subtle | `#857F78` | warm mid-gray |
+| Primary | `#6B9AB8` | sky blue |
+| Success | `#8BAD79` | matcha green |
+| Warning | `#C4A882` | pale coffee |
+| Error | `#C4607A` | raspberry |
+
+The Neovim colorscheme is [e-ink.nvim](https://github.com/e-ink-colorscheme/e-ink.nvim) with highlight overrides applied in [`nvim/lua/plugins/colorscheme.lua`](nvim/lua/plugins/colorscheme.lua) to wire in the accent palette for LSP diagnostics, git signs, and diff views.
+
+---
+
 ## Optional: ThinkPad X230 Fan Control
 
 For quieter operation on a ThinkPad X230, `thinkfan-setup.sh` installs and configures [thinkfan](https://github.com/vmatare/thinkfan) with a silent fan curve.
 
 > [!NOTE]
-> Linux only. Supported on Arch, Fedora, and Ubuntu.
+> Linux only. Supported on Arch, Fedora, Fedora Atomic, and Ubuntu.
+> On Fedora Atomic, the script stages thinkfan via `rpm-ostree` and exits — reboot, then rerun to complete setup.
 
 ```bash
 chmod +x thinkfan-setup.sh
