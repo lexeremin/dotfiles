@@ -133,3 +133,38 @@ stow --target ~/.config --dotfiles <dirName>
 ```bash
 exec zsh
 ```
+
+---
+
+## Optional: ThinkPad X230 Fan Control
+
+For quieter operation on a ThinkPad X230, `thinkfan-setup.sh` installs and configures [thinkfan](https://github.com/vmatare/thinkfan) with a silent fan curve.
+
+> [!NOTE]
+> Linux only. Supported on Arch, Fedora, and Ubuntu.
+
+```bash
+chmod +x thinkfan-setup.sh
+./thinkfan-setup.sh
+```
+
+What it does:
+- Installs `thinkfan` via the appropriate package manager
+- Enables fan control in the `thinkpad_acpi` kernel module (`/etc/modprobe.d/thinkpad_acpi.conf`)
+- Resolves the coretemp hwmon sensor path dynamically
+- Writes a silent curve to `/etc/thinkfan.yaml` — fan off at idle, ramps up gradually, full speed from 75°C
+- Validates the config and enables the `thinkfan` systemd service
+
+Safe to rerun — stops the running service and backs up the existing config before applying changes.
+
+**Monitor fan speed:**
+
+```bash
+cat /proc/acpi/ibm/fan
+```
+
+**Check service status:**
+
+```bash
+systemctl status thinkfan
+```

@@ -1,6 +1,20 @@
 #!/bin/bash
+# ThinkPad X230 fan control setup using thinkfan.
+# Supports Arch (AUR via paru), Fedora (dnf), Ubuntu (apt).
+# Safe to rerun — stops existing service, backs up old config.
 
 set -e
+
+# ── Stop existing thinkfan ───────────────────────────────────────────────────
+# Needed on rerun: thinkfan holds /proc/acpi/ibm/fan open while running,
+# which would cause the config write to race with the active daemon.
+
+stop_thinkfan() {
+  if systemctl is-active --quiet thinkfan; then
+    echo "Stopping running thinkfan service..."
+    sudo systemctl stop thinkfan
+  fi
+}
 
 # ── OS detection ──────────────────────────────────────────────────────────────
 
@@ -20,6 +34,7 @@ detect_os() {
 }
 
 # ── Install thinkfan ──────────────────────────────────────────────────────────
+# thinkfan is in AUR on Arch (not in official repos), standard repos on Fedora/Ubuntu.
 
 install_thinkfan() {
   if command -v thinkfan &>/dev/null; then
@@ -46,15 +61,16 @@ install_thinkfan() {
   esac
 }
 
-# ── Enable thinkpad_acpi fan control ─────────────────────────────────────────
+# ── Enable thinkpad_acpi fan control ──────────────────────────────────────────
+# By default thinkpad_acpi loads with fan_control=0, making /proc/acpi/ibm/fan
+# read-only. Writing the modprobe option and reloading the module unlocks it.
+# If rmmod fails (module busy), a reboot is needed to apply the option.
 
 setup_modprobe() {
   echo "Enabling thinkpad_acpi fan control..."
   echo "options thinkpad_acpi fan_control=1" \
     | sudo tee /etc/modprobe.d/thinkpad_acpi.conf > /dev/null
 
-  # Reload module so the option takes effect without a reboot.
-  # rmmod may fail if the module is in use — fall back to asking for reboot.
   if sudo rmmod thinkpad_acpi 2>/dev/null && sudo modprobe thinkpad_acpi; then
     echo "thinkpad_acpi reloaded."
   else
@@ -63,6 +79,9 @@ setup_modprobe() {
 }
 
 # ── Find coretemp hwmon path ──────────────────────────────────────────────────
+# The X230 exposes CPU core temps via coretemp at a sysfs hwmon path.
+# The hwmon index (hwmon0, hwmon1, …) is assigned at boot and can vary,
+# so we resolve it at runtime instead of hardcoding it.
 
 find_hwmon_path() {
   local base="/sys/devices/platform/coretemp.0/hwmon"
@@ -84,6 +103,10 @@ find_hwmon_path() {
 }
 
 # ── Write thinkfan config ─────────────────────────────────────────────────────
+# Uses YAML format (thinkfan 1.x+). Each level entry is [fan_level, low_temp, high_temp].
+# Overlapping low/high bounds between adjacent levels create hysteresis — the fan
+# won't switch back down until temp drops well below the point it switched up,
+# preventing rapid oscillation around a threshold.
 
 write_config() {
   local hwmon_path="$1"
@@ -98,22 +121,22 @@ write_config() {
   sudo tee "$config" > /dev/null <<EOF
 sensors:
   - hwmon: $hwmon_path
-    indices: [1, 2, 3]
+    indices: [1, 2, 3]  # CPU package + core temps
 
 fans:
   - tpacpi: /proc/acpi/ibm/fan
 
-# Silent curve — fan off at idle, ramps slowly, safety auto above 83°C.
-# Overlapping ranges are intentional: they add hysteresis to prevent
-# the fan from oscillating when temperature hovers around a threshold.
+# Silent curve for ThinkPad X230.
+# Fan levels 0–7 map to the firmware speed steps; 7 is maximum.
+# Format: [level, low_°C, high_°C]
 levels:
-  - [0,      0,  52]
-  - [1,     50,  57]
-  - [2,     55,  62]
-  - [3,     60,  67]
-  - [4,     65,  72]
-  - [5,     70,  78]
-  - [7,     75, 32767]
+  - [0,  0,  52]   # off at idle
+  - [1, 50,  57]
+  - [2, 55,  62]
+  - [3, 60,  67]
+  - [4, 65,  72]
+  - [5, 70,  78]
+  - [7, 75, 32767]  # max from 75°C onwards
 EOF
 }
 
@@ -134,6 +157,11 @@ enable_service() {
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
+if [[ "$(uname)" == "Darwin" ]]; then
+  echo "This script is for Linux only."
+  exit 1
+fi
+
 OS=$(detect_os)
 
 if [[ "$OS" == unsupported* ]]; then
@@ -142,11 +170,7 @@ if [[ "$OS" == unsupported* ]]; then
   exit 1
 fi
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  echo "This script is for Linux only."
-  exit 1
-fi
-
+stop_thinkfan
 install_thinkfan "$OS"
 setup_modprobe
 
