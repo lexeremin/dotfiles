@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
-  "name": "md-paper",
+  "name": "Midori",
   "vars": {
     "primary":  "#6B9AB8",
     "success":  "#8BAD79",

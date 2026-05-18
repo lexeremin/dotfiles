@@ -9,7 +9,7 @@ pi/.pi/agent/*
 !pi/.pi/agent/settings.json
 !pi/.pi/agent/themes/
 pi/.pi/agent/themes/*
-!pi/.pi/agent/themes/md-paper.json
+!pi/.pi/agent/themes/midori.json
 
 # zsh — block everything, only allow main config files
 zsh/**
