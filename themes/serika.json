@@ -1,0 +1,24 @@
+{
+  "name": "serika",
+  "type": "light",
+  "ghostty_theme": "serika",
+  "starship_palette": "serika",
+  "nvim_colorscheme": "serika",
+  "nvim_lualine": "serika",
+  "vscode_theme": "Serika",
+  "pi_theme": "serika",
+  "colors": {
+    "bg":        "#E1E1E3",
+    "fg":        "#323437",
+    "subtle":    "#AAAEB3",
+    "faint":     "#D1D3D8",
+    "mid":       "#4A4D52",
+    "light_mid": "#737880",
+    "bg_alt":    "#D1D3D8",
+    "bg_float":  "#EAEAEC",
+    "primary":   "#E2B714",
+    "success":   "#6A9440",
+    "warning":   "#C08030",
+    "error":     "#DA3333"
+  }
+}

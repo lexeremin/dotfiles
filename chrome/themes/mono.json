@@ -1,0 +1,23 @@
+{
+  "name": "Mono",
+  "version": "1.0",
+  "manifest_version": 2,
+  "theme": {
+    "colors": {
+      "frame":                          [208, 208, 208],
+      "frame_inactive":                 [208, 208, 208],
+      "toolbar":                        [232, 232, 232],
+      "background_tab":                 [232, 232, 232],
+      "background_tab_inactive":        [208, 208, 208],
+      "tab_background_text":            [30,  30,  30],
+      "tab_background_text_inactive":   [136, 136, 136],
+      "bookmark_text":                  [60,  60,  60],
+      "toolbar_button_icon":            [60,  60,  60],
+      "ntp_background":                 [232, 232, 232],
+      "ntp_text":                       [30,  30,  30],
+      "ntp_link":                       [30,  30,  30],
+      "ntp_section":                    [220, 220, 220],
+      "ntp_section_text":               [30,  30,  30]
+    }
+  }
+}

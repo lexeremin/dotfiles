@@ -1,0 +1,24 @@
+{
+  "name": "mono",
+  "type": "light",
+  "ghostty_theme": "mono",
+  "starship_palette": "mono",
+  "nvim_colorscheme": "mono",
+  "nvim_lualine": "mono",
+  "vscode_theme": "Mono",
+  "pi_theme": "mono",
+  "colors": {
+    "bg":        "#E8E8E8",
+    "fg":        "#1E1E1E",
+    "subtle":    "#666666",
+    "faint":     "#CDCDCD",
+    "mid":       "#3C3C3C",
+    "light_mid": "#888888",
+    "bg_alt":    "#DCDCDC",
+    "bg_float":  "#F0F0F0",
+    "primary":   "#3C3C3C",
+    "success":   "#5A5A5A",
+    "warning":   "#888888",
+    "error":     "#1E1E1E"
+  }
+}

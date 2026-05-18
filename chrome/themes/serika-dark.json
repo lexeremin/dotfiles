@@ -1,0 +1,23 @@
+{
+  "name": "Serika Dark",
+  "version": "1.0",
+  "manifest_version": 2,
+  "theme": {
+    "colors": {
+      "frame":                          [37,  39,  41],
+      "frame_inactive":                 [37,  39,  41],
+      "toolbar":                        [50,  52,  55],
+      "background_tab":                 [50,  52,  55],
+      "background_tab_inactive":        [37,  39,  41],
+      "tab_background_text":            [209, 208, 197],
+      "tab_background_text_inactive":   [100, 102, 105],
+      "bookmark_text":                  [138, 142, 147],
+      "toolbar_button_icon":            [138, 142, 147],
+      "ntp_background":                 [50,  52,  55],
+      "ntp_text":                       [209, 208, 197],
+      "ntp_link":                       [209, 208, 197],
+      "ntp_section":                    [44,  45,  48],
+      "ntp_section_text":               [209, 208, 197]
+    }
+  }
+}

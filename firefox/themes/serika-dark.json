@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "Serika Dark",
+  "version": "1.0",
+  "theme": {
+    "colors": {
+      "frame":                       "#252729",
+      "frame_inactive":              "#252729",
+      "tab_background_text":         "#646669",
+      "tab_text":                    "#D1D0C5",
+      "tab_line":                    "#E2B714",
+      "tab_loading_fill":            "#E2B714",
+      "toolbar":                     "#323437",
+      "toolbar_text":                "#D1D0C5",
+      "toolbar_field":               "#2C2E31",
+      "toolbar_field_text":          "#D1D0C5",
+      "toolbar_field_border":        "#2C2E31",
+      "toolbar_field_focus":         "#323437",
+      "toolbar_field_text_focus":    "#D1D0C5",
+      "toolbar_field_border_focus":  "#E2B714",
+      "toolbar_top_separator":       "#252729",
+      "toolbar_bottom_separator":    "#252729",
+      "toolbar_vertical_separator":  "#252729",
+      "button_background_hover":     "#252729",
+      "button_background_active":    "#1E2022",
+      "popup":                       "#3A3D40",
+      "popup_text":                  "#D1D0C5",
+      "popup_border":                "#2C2E31",
+      "popup_highlight":             "#4A4D52",
+      "popup_highlight_text":        "#D1D0C5",
+      "sidebar":                     "#323437",
+      "sidebar_text":                "#D1D0C5",
+      "sidebar_highlight":           "#4A4D52",
+      "sidebar_highlight_text":      "#D1D0C5",
+      "sidebar_border":              "#252729",
+      "ntp_background":              "#323437",
+      "ntp_text":                    "#D1D0C5"
+    }
+  }
+}

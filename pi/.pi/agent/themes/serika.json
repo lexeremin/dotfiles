@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "name": "Serika",
+  "vars": {
+    "primary":  "#E2B714",
+    "success":  "#6A9440",
+    "warning":  "#C08030",
+    "error":    "#DA3333",
+    "fg":       "#323437",
+    "subtle":   "#AAAEB3",
+    "faint":    "#D1D3D8",
+    "bg_alt":   "#D1D3D8"
+  },
+  "colors": {
+    "accent":             "primary",
+    "border":             "faint",
+    "borderAccent":       "primary",
+    "borderMuted":        "bg_alt",
+    "success":            "success",
+    "error":              "error",
+    "warning":            "warning",
+    "muted":              "subtle",
+    "dim":                "faint",
+    "text":               "",
+    "thinkingText":       "subtle",
+
+    "selectedBg":         "bg_alt",
+    "userMessageBg":      "bg_alt",
+    "userMessageText":    "",
+    "customMessageBg":    "#C4C7CC",
+    "customMessageText":  "",
+    "customMessageLabel": "primary",
+    "toolPendingBg":      "bg_alt",
+    "toolSuccessBg":      "#CCDAC0",
+    "toolErrorBg":        "#EAC8C8",
+    "toolTitle":          "primary",
+    "toolOutput":         "",
+
+    "mdHeading":          "primary",
+    "mdLink":             "primary",
+    "mdLinkUrl":          "subtle",
+    "mdCode":             "warning",
+    "mdCodeBlock":        "",
+    "mdCodeBlockBorder":  "faint",
+    "mdQuote":            "subtle",
+    "mdQuoteBorder":      "faint",
+    "mdHr":               "faint",
+    "mdListBullet":       "primary",
+
+    "toolDiffAdded":      "success",
+    "toolDiffRemoved":    "error",
+    "toolDiffContext":    "subtle",
+
+    "syntaxComment":      "subtle",
+    "syntaxKeyword":      "fg",
+    "syntaxFunction":     "fg",
+    "syntaxVariable":     "",
+    "syntaxString":       "success",
+    "syntaxNumber":       "error",
+    "syntaxType":         "fg",
+    "syntaxOperator":     "",
+    "syntaxPunctuation":  "subtle",
+
+    "thinkingOff":        "faint",
+    "thinkingMinimal":    "subtle",
+    "thinkingLow":        "#737880",
+    "thinkingMedium":     "primary",
+    "thinkingHigh":       "success",
+    "thinkingXhigh":      "error",
+
+    "bashMode":           "warning"
+  },
+  "export": {
+    "pageBg":  "#E1E1E3",
+    "cardBg":  "#D1D3D8",
+    "infoBg":  "#C4C7CC"
+  }
+}

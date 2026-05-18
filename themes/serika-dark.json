@@ -1,0 +1,24 @@
+{
+  "name": "serika-dark",
+  "type": "dark",
+  "ghostty_theme": "serika-dark",
+  "starship_palette": "serika-dark",
+  "nvim_colorscheme": "serika-dark",
+  "nvim_lualine": "serika-dark",
+  "vscode_theme": "Serika Dark",
+  "pi_theme": "serika-dark",
+  "colors": {
+    "bg":        "#323437",
+    "fg":        "#D1D0C5",
+    "subtle":    "#646669",
+    "faint":     "#2C2E31",
+    "mid":       "#4A4D52",
+    "light_mid": "#8A8E93",
+    "bg_alt":    "#2C2E31",
+    "bg_float":  "#3A3D40",
+    "primary":   "#E2B714",
+    "success":   "#78A852",
+    "warning":   "#D4A332",
+    "error":     "#CA4754"
+  }
+}
