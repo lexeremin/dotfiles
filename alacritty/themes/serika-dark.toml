@@ -2,22 +2,26 @@
 background = "#323437"
 foreground = "#D1D0C5"
 
+[colors.cursor]
+cursor = "#E2B714"
+text   = "#323437"
+
 [colors.normal]
 black   = "#323437"
 red     = "#CA4754"
-green   = "#78A852"
+green   = "#8AA858"
 yellow  = "#E2B714"
-blue    = "#6A9AB0"
-magenta = "#9A80B0"
-cyan    = "#5A9898"
-white   = "#9A9E9F"
+blue    = "#7888A8"
+magenta = "#A07898"
+cyan    = "#608888"
+white   = "#8A8E93"
 
 [colors.bright]
 black   = "#4A4D52"
 red     = "#CA4754"
-green   = "#78A852"
+green   = "#8AA858"
 yellow  = "#E2B714"
-blue    = "#6A9AB0"
-magenta = "#9A80B0"
-cyan    = "#5A9898"
+blue    = "#7888A8"
+magenta = "#A07898"
+cyan    = "#608888"
 white   = "#D1D0C5"

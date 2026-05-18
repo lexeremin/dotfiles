@@ -1,6 +1,6 @@
 add_newline = false
 format = """$directory$character"""
-palette = "midori"
+palette = "mono"
 right_format = """$all"""
 command_timeout = 1000
 
