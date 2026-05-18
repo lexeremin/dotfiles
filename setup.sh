@@ -120,9 +120,10 @@ apply_theme() {
   sed -i '' 's/"theme": "[^"]*"/"theme": "'"$pi_theme"'"/' \
     pi/.pi/agent/settings.json
 
-  # Copy: chrome + firefox manifests
-  cp "chrome/themes/$theme.json"   chrome/manifest.json
-  cp "firefox/themes/$theme.json"  firefox/manifest.json
+  # Copy: chrome + firefox manifests + vscode colorscheme
+  cp "chrome/themes/$theme.json"        chrome/manifest.json
+  cp "firefox/themes/$theme.json"       firefox/manifest.json
+  cp "vscode/themes/$theme.jsonc"       vscode/colorscheme.jsonc
 }
 
 # Discover available themes

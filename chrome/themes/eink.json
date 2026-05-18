@@ -1,0 +1,23 @@
+{
+  "name": "Eink",
+  "version": "1.0",
+  "manifest_version": 2,
+  "theme": {
+    "colors": {
+      "frame":                          [184, 184, 184],
+      "frame_inactive":                 [184, 184, 184],
+      "toolbar":                        [204, 204, 204],
+      "background_tab":                 [204, 204, 204],
+      "background_tab_inactive":        [184, 184, 184],
+      "tab_background_text":            [71,  71,  71],
+      "tab_background_text_inactive":   [134, 134, 134],
+      "bookmark_text":                  [94,  94,  94],
+      "toolbar_button_icon":            [94,  94,  94],
+      "ntp_background":                 [204, 204, 204],
+      "ntp_text":                       [71,  71,  71],
+      "ntp_link":                       [71,  71,  71],
+      "ntp_section":                    [194, 194, 194],
+      "ntp_section_text":               [71,  71,  71]
+    }
+  }
+}

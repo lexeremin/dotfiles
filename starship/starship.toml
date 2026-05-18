@@ -27,17 +27,29 @@ untracked  = "[?](subtle)"
 style = "warning"
 
 [palettes.midori]
-# Standard names — picked up by module defaults automatically
 red    = "#C4607A"
 green  = "#8BAD79"
 yellow = "#B89868"
 blue   = "#6B9AB8"
 purple = "#58534C"
 cyan   = "#4E4A45"
-# Semantic aliases used in explicit module styles above
 primary   = "#6B9AB8"
 secondary = "#58534C"
 success   = "#8BAD79"
 warning   = "#B89868"
 error     = "#C4607A"
 subtle    = "#857F78"
+
+[palettes.eink]
+red    = "#C4607A"
+green  = "#8BAD79"
+yellow = "#B89868"
+blue   = "#6B9AB8"
+purple = "#474747"
+cyan   = "#4A4A4A"
+primary   = "#6B9AB8"
+secondary = "#474747"
+success   = "#8BAD79"
+warning   = "#B89868"
+error     = "#C4607A"
+subtle    = "#868686"

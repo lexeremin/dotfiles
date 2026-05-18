@@ -1,0 +1,24 @@
+{
+  "name": "eink",
+  "type": "light",
+  "ghostty_theme": "eink",
+  "starship_palette": "eink",
+  "nvim_colorscheme": "eink",
+  "nvim_lualine": "eink",
+  "vscode_theme": "Eink",
+  "pi_theme": "eink",
+  "colors": {
+    "bg":        "#CCCCCC",
+    "fg":        "#474747",
+    "subtle":    "#868686",
+    "faint":     "#B8B8B8",
+    "mid":       "#5E5E5E",
+    "light_mid": "#7C7C7C",
+    "bg_alt":    "#C2C2C2",
+    "bg_float":  "#D5D5D5",
+    "primary":   "#6B9AB8",
+    "success":   "#8BAD79",
+    "warning":   "#B89868",
+    "error":     "#C4607A"
+  }
+}

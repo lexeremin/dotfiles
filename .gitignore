@@ -10,6 +10,7 @@ pi/.pi/agent/*
 !pi/.pi/agent/themes/
 pi/.pi/agent/themes/*
 !pi/.pi/agent/themes/midori.json
+!pi/.pi/agent/themes/eink.json
 
 # zsh — block everything, only allow main config files
 zsh/**
@@ -23,6 +24,7 @@ zsh/**
 **/current-theme.lua
 chrome/manifest.json
 firefox/manifest.json
+vscode/colorscheme.jsonc
 
 */decoration.toml
 */macos
