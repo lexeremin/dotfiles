@@ -1,6 +1,6 @@
 add_newline = false
 format = """$directory$character"""
-palette = "eink"
+palette = "md-paper"
 right_format = """$all"""
 command_timeout = 1000
 
@@ -26,7 +26,7 @@ untracked  = "[?](subtle)"
 [cmd_duration]
 style = "warning"
 
-[palettes.eink]
+[palettes.md-paper]
 # Standard names — picked up by module defaults automatically
 red    = "#C4607A"
 green  = "#8BAD79"

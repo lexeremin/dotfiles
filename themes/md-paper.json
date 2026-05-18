@@ -1,0 +1,24 @@
+{
+  "name": "md-paper",
+  "type": "light",
+  "ghostty_theme": "md-paper",
+  "starship_palette": "md-paper",
+  "nvim_colorscheme": "md-paper",
+  "nvim_lualine": "md-paper",
+  "vscode_theme": "md-paper Dark",
+  "pi_theme": "md-paper",
+  "colors": {
+    "bg":        "#E0DBD3",
+    "fg":        "#58534C",
+    "subtle":    "#857F78",
+    "faint":     "#C8C3BB",
+    "mid":       "#615C56",
+    "light_mid": "#7A756E",
+    "bg_alt":    "#D8D3CB",
+    "bg_float":  "#E8E4DC",
+    "primary":   "#6B9AB8",
+    "success":   "#8BAD79",
+    "warning":   "#B89868",
+    "error":     "#C4607A"
+  }
+}

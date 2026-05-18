@@ -79,6 +79,72 @@ restore_backup() {
   fi
 }
 
+# ── Theme switcher ────────────────────────────────────────────────────────────
+
+apply_theme() {
+  local theme="$1"
+  local json="themes/$theme.json"
+
+  if [[ ! -f "$json" ]]; then
+    echo "Theme file not found: $json"
+    exit 1
+  fi
+
+  get_val() { grep "\"$1\"" "$json" | sed 's/.*: *"\([^"]*\)".*/\1/' | head -1; }
+
+  local ghostty_theme=$(get_val ghostty_theme)
+  local starship_palette=$(get_val starship_palette)
+  local nvim_colorscheme=$(get_val nvim_colorscheme)
+  local nvim_lualine=$(get_val nvim_lualine)
+  local vscode_theme=$(get_val vscode_theme)
+  local pi_theme=$(get_val pi_theme)
+
+  echo "Applying theme: $theme"
+
+  # Include-based: copy pre-built theme files to ~/.config/
+  mkdir -p ~/.config/alacritty ~/.config/kitty ~/.config/wezterm ~/.config/tmux
+  cp "alacritty/themes/$theme.toml" ~/.config/alacritty/current-theme.toml
+  cp "kitty/themes/$theme.conf"     ~/.config/kitty/current-theme.conf
+  cp "wezterm/themes/$theme.lua"    ~/.config/wezterm/current-theme.lua
+  cp "tmux/themes/$theme.conf"      ~/.config/tmux/current-theme.conf
+
+  # Name-based: patch single-line theme references in dotfiles configs
+  sed -i '' "s/^theme = .*/theme = $ghostty_theme/" ghostty/config
+  sed -i '' "s/^palette = .*/palette = \"$starship_palette\"/" starship/starship.toml
+  sed -i '' 's/colorscheme = "[^"]*"/colorscheme = "'"$nvim_colorscheme"'"/' \
+    nvim/lua/plugins/colorscheme.lua
+  sed -i '' 's/theme = "[^"]*"/theme = "'"$nvim_lualine"'"/' \
+    nvim/lua/plugins/ui.lua
+  sed -i '' 's/"workbench\.colorTheme": "[^"]*"/"workbench.colorTheme": "'"$vscode_theme"'"/' \
+    vscode/settings.json
+  sed -i '' 's/"theme": "[^"]*"/"theme": "'"$pi_theme"'"/' \
+    pi/.pi/agent/settings.json
+
+  # Copy: chrome + firefox manifests
+  cp "chrome/themes/$theme.json"   chrome/manifest.json
+  cp "firefox/themes/$theme.json"  firefox/manifest.json
+}
+
+# Discover available themes
+THEMES=()
+for f in themes/*.json; do
+  [[ -f "$f" ]] && THEMES+=("$(basename "$f" .json)")
+done
+
+if [[ ${#THEMES[@]} -gt 0 ]]; then
+  echo "Available themes:"
+  for i in "${!THEMES[@]}"; do
+    echo "  $((i+1)). ${THEMES[$i]}"
+  done
+  read -rp "Choose a theme [1]: " THEME_CHOICE
+  THEME_CHOICE="${THEME_CHOICE:-1}"
+  THEME="${THEMES[$((THEME_CHOICE-1))]}"
+  echo "Using theme: $THEME"
+  apply_theme "$THEME"
+fi
+
+# ─────────────────────────────────────────────────────────────────────────────
+
 # Backup pi config files (stowed separately to ~, not ~/.config)
 PI_CONFIG_FILES=("$HOME/.pi/agent/models.json" "$HOME/.pi/agent/settings.json")
 for file in "${PI_CONFIG_FILES[@]}"; do
