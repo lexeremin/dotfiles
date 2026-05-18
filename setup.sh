@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sedi() { if [[ "$(uname)" == "Darwin" ]]; then sed -i '' "$@"; else sed -i "$@"; fi; }
+
 # Display help message
 show_help() {
   echo "Usage: $0 [--restow|--unstow]"
@@ -109,18 +111,18 @@ apply_theme() {
   cp "tmux/themes/$theme.conf"      ~/.config/tmux/current-theme.conf
 
   # Name-based: patch single-line theme references in dotfiles configs
-  sed -i '' "s/^theme = .*/theme = $ghostty_theme/" ghostty/config
+  sedi "s/^theme = .*/theme = $ghostty_theme/" ghostty/config
   # Also patch the live ghostty config in case it isn't stow-symlinked
   [[ -f ~/.config/ghostty/config ]] && \
-    sed -i '' "s/^theme = .*/theme = $ghostty_theme/" ~/.config/ghostty/config
-  sed -i '' "s/^palette = .*/palette = \"$starship_palette\"/" starship/starship.toml
-  sed -i '' 's/colorscheme = "[^"]*"/colorscheme = "'"$nvim_colorscheme"'"/' \
+    sedi "s/^theme = .*/theme = $ghostty_theme/" ~/.config/ghostty/config
+  sedi "s/^palette = .*/palette = \"$starship_palette\"/" starship/starship.toml
+  sedi 's/colorscheme = "[^"]*"/colorscheme = "'"$nvim_colorscheme"'"/' \
     nvim/lua/plugins/colorscheme.lua
-  sed -i '' 's/theme = "[^"]*"/theme = "'"$nvim_lualine"'"/' \
+  sedi 's/theme = "[^"]*"/theme = "'"$nvim_lualine"'"/' \
     nvim/lua/plugins/ui.lua
-  sed -i '' 's/"workbench\.colorTheme": "[^"]*"/"workbench.colorTheme": "'"$vscode_theme"'"/' \
+  sedi 's/"workbench\.colorTheme": "[^"]*"/"workbench.colorTheme": "'"$vscode_theme"'"/' \
     vscode/settings.json
-  sed -i '' 's/"theme": "[^"]*"/"theme": "'"$pi_theme"'"/' \
+  sedi 's/"theme": "[^"]*"/"theme": "'"$pi_theme"'"/' \
     pi/.pi/agent/settings.json
 
   # Copy: chrome + firefox manifests + vscode colorscheme
