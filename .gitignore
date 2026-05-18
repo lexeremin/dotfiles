@@ -2,8 +2,13 @@
 
 # pi — block everything, then explicitly allow only tracked files
 pi/**
+!pi/.pi/
+!pi/.pi/agent/
+pi/.pi/agent/*
 !pi/.pi/agent/models.json
 !pi/.pi/agent/settings.json
+!pi/.pi/agent/themes/
+pi/.pi/agent/themes/*
 !pi/.pi/agent/themes/md-paper.json
 
 # zsh — block everything, only allow main config files

@@ -1,0 +1,15 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "openrouter",
+  "defaultModel": "minimax/minimax-m2.5:free",
+  "defaultThinkingLevel": "medium",
+  "theme": "md-paper",
+  "packages": [
+    "npm:context-mode",
+    "npm:pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access",
+    "npm:@ollama/pi-web-search",
+    "npm:@llblab/pi-telegram"
+  ]
+}
