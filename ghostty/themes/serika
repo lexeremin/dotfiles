@@ -3,7 +3,7 @@ foreground = #323437
 cursor-color = #E2B714
 palette = 0=#E1E1E3
 palette = 1=#DA3333
-palette = 2=#7A8C40
+palette = 2=#AAAEB3
 palette = 3=#C8A010
 palette = 4=#6A7890
 palette = 5=#886888
@@ -12,7 +12,7 @@ palette = 7=#AAAEB3
 
 palette = 8=#AAAEB3
 palette = 9=#DA3333
-palette = 10=#7A8C40
+palette = 10=#AAAEB3
 palette = 11=#E2B714
 palette = 12=#6A7890
 palette = 13=#886888

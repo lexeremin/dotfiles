@@ -4,7 +4,7 @@ vim.g.colors_name = "serika"
 vim.opt.background = "light"
 
 -- Serika: yellow (#E2B714) is the UI accent only — too low contrast for syntax on light bg.
--- Syntax uses dark fg + bold/italic; strings use olive; errors use red.
+-- Syntax uses dark fg + bold/italic; strings faded (subtle); git signs use blue; errors use red.
 local c = {
   bg      = "#E1E1E3",
   fg      = "#323437",
@@ -12,7 +12,7 @@ local c = {
   faint   = "#D1D3D8",
   mid     = "#4A4D52",
   accent  = "#E2B714",
-  olive   = "#7A8C40",
+  blue    = "#6B9AB8",
   error   = "#DA3333",
   warn    = "#C08030",
   bg_alt  = "#D1D3D8",
@@ -58,14 +58,14 @@ hi("SpecialKey",      { fg = c.faint })
 hi("WildMenu",        { fg = c.fg, bg = c.accent, bold = true })
 hi("QuickFixLine",    { bg = c.faint })
 hi("Directory",       { fg = c.fg, bold = true })
-hi("Question",        { fg = c.olive })
-hi("MoreMsg",         { fg = c.olive })
+hi("Question",        { fg = c.subtle })
+hi("MoreMsg",         { fg = c.subtle })
 hi("ModeMsg",         { fg = c.fg, bold = true })
 hi("ErrorMsg",        { fg = c.error })
 hi("WarningMsg",      { fg = c.warn })
 hi("Todo",            { fg = c.warn, bold = true })
 
--- Syntax — no yellow in syntax (unreadable on light), bold/italic + olive/red only
+-- Syntax — no yellow in syntax (unreadable on light), bold/italic + subtle strings + blue git
 hi("Comment",         { fg = c.subtle, italic = true })
 hi("Keyword",         { fg = c.fg, bold = true })
 hi("Statement",       { fg = c.fg, bold = true })
@@ -76,8 +76,8 @@ hi("Exception",       { fg = c.fg, bold = true })
 hi("Operator",        { fg = c.fg })
 hi("Function",        { fg = c.fg, bold = true })
 hi("Identifier",      { fg = c.fg })
-hi("String",          { fg = c.olive })
-hi("Character",       { fg = c.olive })
+hi("String",          { fg = c.subtle })
+hi("Character",       { fg = c.subtle })
 hi("Number",          { fg = c.error })
 hi("Float",           { fg = c.error })
 hi("Boolean",         { fg = c.error })
@@ -113,10 +113,10 @@ hi("@function.builtin",     { fg = c.fg, bold = true })
 hi("@method",               { fg = c.fg, bold = true })
 hi("@method.call",          { fg = c.fg })
 hi("@constructor",          { fg = c.fg, bold = true })
-hi("@string",               { fg = c.olive })
+hi("@string",               { fg = c.subtle })
 hi("@string.escape",        { fg = c.subtle })
 hi("@string.special",       { fg = c.subtle })
-hi("@character",            { fg = c.olive })
+hi("@character",            { fg = c.subtle })
 hi("@number",               { fg = c.error })
 hi("@float",                { fg = c.error })
 hi("@boolean",              { fg = c.error })
@@ -162,30 +162,30 @@ hi("DiagnosticUnderlineInfo",    { sp = c.mid,   undercurl = true })
 hi("DiagnosticUnderlineHint",    { sp = c.subtle, undercurl = true })
 
 -- Git signs
-hi("GitSignsAdd",       { fg = c.olive })
-hi("GitSignsChange",    { fg = c.mid })
+hi("GitSignsAdd",       { fg = c.blue })
+hi("GitSignsChange",    { fg = c.blue })
 hi("GitSignsDelete",    { fg = c.error })
-hi("GitSignsAddNr",     { fg = c.olive })
-hi("GitSignsChangeNr",  { fg = c.mid })
+hi("GitSignsAddNr",     { fg = c.blue })
+hi("GitSignsChangeNr",  { fg = c.blue })
 hi("GitSignsDeleteNr",  { fg = c.error })
 
-hi("MiniDiffSignAdd",     { fg = c.olive })
-hi("MiniDiffSignChange",  { fg = c.mid })
+hi("MiniDiffSignAdd",     { fg = c.blue })
+hi("MiniDiffSignChange",  { fg = c.blue })
 hi("MiniDiffSignDelete",  { fg = c.error })
-hi("MiniDiffOverAdd",     { fg = c.olive })
-hi("MiniDiffOverChange",  { fg = c.mid })
+hi("MiniDiffOverAdd",     { fg = c.blue })
+hi("MiniDiffOverChange",  { fg = c.blue })
 hi("MiniDiffOverDelete",  { fg = c.error })
 
-hi("NeoTreeGitAdded",     { fg = c.olive })
-hi("NeoTreeGitModified",  { fg = c.mid })
+hi("NeoTreeGitAdded",     { fg = c.blue })
+hi("NeoTreeGitModified",  { fg = c.blue })
 hi("NeoTreeGitDeleted",   { fg = c.error })
-hi("NeoTreeGitStaged",    { fg = c.olive })
+hi("NeoTreeGitStaged",    { fg = c.blue })
 hi("NeoTreeGitUnstaged",  { fg = c.warn })
 hi("NeoTreeGitUntracked", { fg = c.subtle })
 hi("NeoTreeGitIgnored",   { fg = c.subtle })
 hi("NeoTreeGitConflict",  { fg = c.error })
 
-hi("DiffAdd",    { fg = c.olive })
-hi("DiffChange", { fg = c.mid })
+hi("DiffAdd",    { fg = c.blue })
+hi("DiffChange", { fg = c.blue })
 hi("DiffDelete", { fg = c.error })
 hi("DiffText",   { fg = c.warn })

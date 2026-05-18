@@ -1,6 +1,6 @@
 add_newline = false
 format = """$directory$character"""
-palette = "serika-dark"
+palette = "midori"
 right_format = """$all"""
 command_timeout = 1000
 
@@ -12,12 +12,12 @@ success_symbol = "[❯](primary)"
 error_symbol   = "[❯](error)"
 
 [git_branch]
-style  = "success"
+style  = "git"
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [git_status]
-style      = "success"
-staged     = "[+](success)"
+style      = "git"
+staged     = "[+](git)"
 modified   = "[!](warning)"
 deleted    = "[-](error)"
 conflicted = "[~](error)"
@@ -39,6 +39,7 @@ success   = "#8BAD79"
 warning   = "#B89868"
 error     = "#C4607A"
 subtle    = "#857F78"
+git       = "#8BAD79"
 
 [palettes.eink]
 red    = "#C4607A"
@@ -53,6 +54,7 @@ success   = "#8BAD79"
 warning   = "#B89868"
 error     = "#C4607A"
 subtle    = "#868686"
+git       = "#8BAD79"
 
 [palettes.mono]
 red    = "#444444"
@@ -67,31 +69,34 @@ success   = "#5A5A5A"
 warning   = "#888888"
 error     = "#1E1E1E"
 subtle    = "#888888"
+git       = "#666666"
 
 [palettes.serika]
 red    = "#DA3333"
-green  = "#6A9440"
+green  = "#AAAEB3"
 yellow = "#E2B714"
-blue   = "#5A88B8"
+blue   = "#6B9AB8"
 purple = "#9070A8"
 cyan   = "#4A8888"
 primary   = "#E2B714"
 secondary = "#8A8E93"
-success   = "#6A9440"
+success   = "#AAAEB3"
 warning   = "#C08030"
 error     = "#DA3333"
 subtle    = "#AAAEB3"
+git       = "#6B9AB8"
 
 [palettes.serika-dark]
 red    = "#CA4754"
-green  = "#78A852"
+green  = "#8A8E93"
 yellow = "#E2B714"
-blue   = "#6A9AB0"
+blue   = "#6B9AB8"
 purple = "#9A80B0"
 cyan   = "#5A9898"
 primary   = "#E2B714"
 secondary = "#8A8E93"
-success   = "#78A852"
+success   = "#8A8E93"
 warning   = "#D4A332"
 error     = "#CA4754"
 subtle    = "#646669"
+git       = "#6B9AB8"

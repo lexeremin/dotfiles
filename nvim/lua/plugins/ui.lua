@@ -41,7 +41,7 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "serika-dark",
+        theme = "midori",
       },
     },
   },

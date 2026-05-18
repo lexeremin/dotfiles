@@ -4,7 +4,7 @@ local c = {
   faint   = "#2C2E31",
   subtle  = "#646669",
   primary = "#E2B714",
-  success = "#78A852",
+  success = "#6B9AB8",
   warning = "#D4A332",
   error   = "#CA4754",
 }

@@ -4,7 +4,7 @@ vim.g.colors_name = "serika-dark"
 vim.opt.background = "dark"
 
 -- Serika Dark: yellow (#E2B714) is the primary accent — excellent contrast on dark bg (~8:1).
--- Keywords/functions use yellow. Strings use green. Errors use red.
+-- Keywords/functions use yellow. Strings faded (subtle). Git signs use blue. Errors use red.
 local c = {
   bg      = "#323437",
   fg      = "#D1D0C5",
@@ -13,7 +13,7 @@ local c = {
   mid     = "#4A4D52",
   light   = "#8A8E93",
   accent  = "#E2B714",
-  green   = "#8AA858",
+  blue    = "#6B9AB8",
   error   = "#CA4754",
   warn    = "#D4A332",
   bg_alt  = "#2C2E31",
@@ -59,8 +59,8 @@ hi("SpecialKey",      { fg = c.subtle })
 hi("WildMenu",        { fg = c.faint,  bg = c.accent, bold = true })
 hi("QuickFixLine",    { bg = c.mid })
 hi("Directory",       { fg = c.accent })
-hi("Question",        { fg = c.green })
-hi("MoreMsg",         { fg = c.green })
+hi("Question",        { fg = c.subtle })
+hi("MoreMsg",         { fg = c.subtle })
 hi("ModeMsg",         { fg = c.fg, bold = true })
 hi("ErrorMsg",        { fg = c.error })
 hi("WarningMsg",      { fg = c.warn })
@@ -77,8 +77,8 @@ hi("Exception",       { fg = c.accent, bold = true })
 hi("Operator",        { fg = c.fg })
 hi("Function",        { fg = c.accent, bold = true })
 hi("Identifier",      { fg = c.fg })
-hi("String",          { fg = c.green })
-hi("Character",       { fg = c.green })
+hi("String",          { fg = c.subtle })
+hi("Character",       { fg = c.subtle })
 hi("Number",          { fg = c.error })
 hi("Float",           { fg = c.error })
 hi("Boolean",         { fg = c.error })
@@ -114,10 +114,10 @@ hi("@function.builtin",     { fg = c.accent })
 hi("@method",               { fg = c.accent, bold = true })
 hi("@method.call",          { fg = c.fg })
 hi("@constructor",          { fg = c.fg, bold = true })
-hi("@string",               { fg = c.green })
+hi("@string",               { fg = c.subtle })
 hi("@string.escape",        { fg = c.subtle })
 hi("@string.special",       { fg = c.subtle })
-hi("@character",            { fg = c.green })
+hi("@character",            { fg = c.subtle })
 hi("@number",               { fg = c.error })
 hi("@float",                { fg = c.error })
 hi("@boolean",              { fg = c.error })
@@ -163,30 +163,30 @@ hi("DiagnosticUnderlineInfo",    { sp = c.accent, undercurl = true })
 hi("DiagnosticUnderlineHint",    { sp = c.subtle, undercurl = true })
 
 -- Git signs
-hi("GitSignsAdd",       { fg = c.green })
-hi("GitSignsChange",    { fg = c.accent })
+hi("GitSignsAdd",       { fg = c.blue })
+hi("GitSignsChange",    { fg = c.blue })
 hi("GitSignsDelete",    { fg = c.error })
-hi("GitSignsAddNr",     { fg = c.green })
-hi("GitSignsChangeNr",  { fg = c.accent })
+hi("GitSignsAddNr",     { fg = c.blue })
+hi("GitSignsChangeNr",  { fg = c.blue })
 hi("GitSignsDeleteNr",  { fg = c.error })
 
-hi("MiniDiffSignAdd",     { fg = c.green })
-hi("MiniDiffSignChange",  { fg = c.accent })
+hi("MiniDiffSignAdd",     { fg = c.blue })
+hi("MiniDiffSignChange",  { fg = c.blue })
 hi("MiniDiffSignDelete",  { fg = c.error })
-hi("MiniDiffOverAdd",     { fg = c.green })
-hi("MiniDiffOverChange",  { fg = c.accent })
+hi("MiniDiffOverAdd",     { fg = c.blue })
+hi("MiniDiffOverChange",  { fg = c.blue })
 hi("MiniDiffOverDelete",  { fg = c.error })
 
-hi("NeoTreeGitAdded",     { fg = c.green })
-hi("NeoTreeGitModified",  { fg = c.accent })
+hi("NeoTreeGitAdded",     { fg = c.blue })
+hi("NeoTreeGitModified",  { fg = c.blue })
 hi("NeoTreeGitDeleted",   { fg = c.error })
-hi("NeoTreeGitStaged",    { fg = c.green })
+hi("NeoTreeGitStaged",    { fg = c.blue })
 hi("NeoTreeGitUnstaged",  { fg = c.warn })
 hi("NeoTreeGitUntracked", { fg = c.subtle })
 hi("NeoTreeGitIgnored",   { fg = c.subtle })
 hi("NeoTreeGitConflict",  { fg = c.error })
 
-hi("DiffAdd",    { fg = c.green })
-hi("DiffChange", { fg = c.accent })
+hi("DiffAdd",    { fg = c.blue })
+hi("DiffChange", { fg = c.blue })
 hi("DiffDelete", { fg = c.error })
 hi("DiffText",   { fg = c.warn })
