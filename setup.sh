@@ -79,6 +79,12 @@ restore_backup() {
   fi
 }
 
+# Backup pi config files (stowed separately to ~, not ~/.config)
+PI_CONFIG_FILES=("$HOME/.pi/agent/models.json" "$HOME/.pi/agent/settings.json")
+for file in "${PI_CONFIG_FILES[@]}"; do
+  backup_existing "$file"
+done
+
 # Backup existing directories in ~/.config/
 for dir in "${DIRS[@]}"; do
   config_dir="$HOME/.config/${dir}"
@@ -117,14 +123,17 @@ case "$MODE" in
 "stow")
   echo "Stowing..."
   stow -v .
+  stow --target ~ -v pi
   ;;
 "restow")
   echo "Restowing..."
   stow -v --restow .
+  stow --target ~ --restow -v pi
   ;;
 "unstow")
   echo "Unstowing..."
   stow -v --delete .
+  stow --target ~ --delete -v pi
   ;;
 *)
   echo "Invalid mode: $MODE"
@@ -145,6 +154,11 @@ if [[ "$MODE" == "unstow" ]]; then
   for file in "${ZSH_FILES[@]}"; do
     zsh_file="$HOME/$file"
     restore_backup "$zsh_file"
+  done
+
+  # Restore pi config files
+  for file in "${PI_CONFIG_FILES[@]}"; do
+    restore_backup "$file"
   done
 fi
 

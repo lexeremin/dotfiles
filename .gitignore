@@ -1,5 +1,17 @@
 .DS_Store
 
+# pi — block everything, then explicitly allow only tracked files
+pi/**
+!pi/.pi/agent/models.json
+!pi/.pi/agent/settings.json
+!pi/.pi/agent/themes/md-paper.json
+
+# zsh — block everything, only allow main config files
+zsh/**
+!zsh/.zshrc
+!zsh/.zprofile
+!zsh/.zlogin
+
 */decoration.toml
 */macos
 */linux
@@ -7,3 +19,8 @@
 *.zsh_history
 .zcompcache
 *.zsh_sessions
+
+# Sensitive files — matched at any depth
+**/.env
+**/.env.*
+**/auth.json

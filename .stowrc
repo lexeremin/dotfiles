@@ -4,4 +4,5 @@
 --ignore=leaves.txt
 --ignore=leaves
 --ignore=setup.sh
+--ignore=pi
 
