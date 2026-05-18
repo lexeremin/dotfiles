@@ -63,9 +63,10 @@ On Fedora and Ubuntu, packages not available in official repos (starship, lazygi
 
 ## Automated Setup
 
-`setup.sh` backs up your existing config and symlinks everything using GNU Stow.
+`setup.sh` backs up your existing config, applies your chosen theme, and symlinks everything using GNU Stow.
 
 What it does:
+- **Prompts for a theme** — lists available themes from `themes/`, lets you pick one, and writes it to all apps before stowing
 - Backs up any existing files/directories in `~/.config/` that would conflict (renamed to `.bak`)
 - Backs up zsh files in `$HOME` (`.zshrc`, `.zlogin`, `.zprofile`, `.zshenv`)
 - Creates `~/.zshenv` with `ZDOTDIR=$HOME/.config/zsh`
@@ -153,22 +154,38 @@ exec zsh
 
 ---
 
-## Colorscheme
+## Themes
 
-All terminals, Neovim, tmux, and Starship share a unified **e-ink** palette inspired by [Traveler's Notebook MD paper](https://www.midori-japan.co.jp/md/) — warm off-white background, graphite-pencil text, and four muted accent colors.
+Five themes live in [`themes/`](themes/). All terminals, Neovim, tmux, Starship, VS Code, and the Pi agent switch together when you run `setup.sh` and pick one.
 
-| Role | Hex | Vibe |
-|------|-----|------|
-| Background | `#E0DBD3` | MD paper warm gray |
-| Foreground | `#58534C` | graphite pencil (~6:1 contrast) |
-| Selection | `#C8C3BB` | soft highlight |
-| Subtle | `#857F78` | warm mid-gray |
-| Primary | `#6B9AB8` | sky blue |
-| Success | `#8BAD79` | matcha green |
-| Warning | `#C4A882` | pale coffee |
-| Error | `#C4607A` | raspberry |
+| Theme | Type | Character |
+|-------|------|-----------|
+| **serika-dark** | dark | [Monkeytype Serika Dark](https://monkeytype.com) — yellow keywords, gray strings, blue git signs |
+| **serika** | light | Serika Light — yellow UI accents only, bold keywords, faded strings |
+| **midori** | light | MD paper warm gray, sky-blue accents, matcha green git |
+| **eink** | light | Pure e-ink — same accents as Midori on a higher-contrast neutral gray |
+| **mono** | light | Fully monochromatic — no hue whatsoever, bold/italic as the only differentiator |
 
-The Neovim colorscheme is [e-ink.nvim](https://github.com/e-ink-colorscheme/e-ink.nvim) with highlight overrides applied in [`nvim/lua/plugins/colorscheme.lua`](nvim/lua/plugins/colorscheme.lua) to wire in the accent palette for LSP diagnostics, git signs, and diff views.
+### How the switcher works
+
+`setup.sh` splits apps into two categories:
+
+- **Include-based** (Alacritty, Kitty, WezTerm, Tmux) — copies `<app>/themes/<theme>.*` into `~/.config/<app>/current-theme.*`, which the app imports at startup.
+- **Name-based** (Ghostty, Starship, Neovim, VS Code, Pi) — patches a single line in the dotfiles config (e.g. `theme = serika-dark`, `palette = "serika-dark"`). Because these configs are stow-symlinked, the live file updates instantly.
+
+To switch themes at any time without re-stowing, just rerun the script:
+
+```bash
+./setup.sh
+```
+
+### Adding a new theme
+
+1. Create `themes/<name>.json` with the palette and app name keys (see an existing file for the schema).
+2. Add per-app files: `alacritty/themes/<name>.toml`, `kitty/themes/<name>.conf`, `wezterm/themes/<name>.lua`, `tmux/themes/<name>.conf`, `ghostty/themes/<name>`.
+3. Add `nvim/colors/<name>.lua` and `nvim/lua/lualine/themes/<name>.lua`.
+4. Add `[palettes.<name>]` to `starship/starship.toml`.
+5. Run `./setup.sh` and pick the new theme.
 
 ---
 

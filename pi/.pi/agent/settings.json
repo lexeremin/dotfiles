@@ -3,7 +3,7 @@
   "defaultProvider": "openrouter",
   "defaultModel": "minimax/minimax-m2.5:free",
   "defaultThinkingLevel": "medium",
-  "theme": "serika",
+  "theme": "midori",
   "packages": [
     "npm:context-mode",
     "npm:pi-subagents",

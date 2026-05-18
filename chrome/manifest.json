@@ -1,23 +1,23 @@
 {
-  "name": "Serika",
+  "name": "Midori",
   "version": "1.0",
   "manifest_version": 2,
   "theme": {
     "colors": {
-      "frame":                          [200, 202, 208],
-      "frame_inactive":                 [200, 202, 208],
-      "toolbar":                        [225, 225, 227],
-      "background_tab":                 [225, 225, 227],
-      "background_tab_inactive":        [200, 202, 208],
-      "tab_background_text":            [50,  52,  55],
-      "tab_background_text_inactive":   [170, 174, 179],
-      "bookmark_text":                  [74,  77,  82],
-      "toolbar_button_icon":            [74,  77,  82],
-      "ntp_background":                 [225, 225, 227],
-      "ntp_text":                       [50,  52,  55],
-      "ntp_link":                       [50,  52,  55],
-      "ntp_section":                    [209, 211, 216],
-      "ntp_section_text":               [50,  52,  55]
+      "frame":                          [208, 203, 195],
+      "frame_inactive":                 [208, 203, 195],
+      "toolbar":                        [224, 219, 211],
+      "background_tab":                 [224, 219, 211],
+      "background_tab_inactive":        [208, 203, 195],
+      "tab_background_text":            [88,  83,  76],
+      "tab_background_text_inactive":   [133, 127, 120],
+      "bookmark_text":                  [97,  92,  86],
+      "toolbar_button_icon":            [97,  92,  86],
+      "ntp_background":                 [224, 219, 211],
+      "ntp_text":                       [88,  83,  76],
+      "ntp_link":                       [88,  83,  76],
+      "ntp_section":                    [216, 211, 203],
+      "ntp_section_text":               [88,  83,  76]
     }
   }
 }
