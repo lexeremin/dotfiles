@@ -189,7 +189,7 @@ for file in "${ZSH_FILES[@]}"; do
   backup_existing "$zsh_file"
 done
 
-echo "export ZDOTDIR=$HOME/.config/zsh" >~/.zshenv
+echo 'export ZDOTDIR=$HOME/.config/zsh' >~/.zshenv
 
 case "$MODE" in
 "stow")

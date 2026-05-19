@@ -59,12 +59,12 @@ fi
 
 # Added by LM Studio CLI (lms)
 if [[ $(uname) == "Darwin" ]]; then
-  export PATH="$PATH:/Users/$(whoami)/.lmstudio/bin"
+  export PATH="$PATH:$HOME/.lmstudio/bin"
 fi
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 if [[ $(uname) == "Darwin" ]]; then
-  fpath=("/Users/$(whoami)/.docker/completions" $fpath)
+  fpath=("$HOME/.docker/completions" $fpath)
   autoload -Uz compinit
   compinit
 fi
@@ -72,7 +72,7 @@ fi
 
 # OpenJDK 21 for mac
 if [[ $(uname) == "Darwin" ]]; then
-  export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+  export PATH="$(brew --prefix openjdk@21)/bin:$PATH"
   export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home/"
 fi
 

@@ -28,7 +28,7 @@
   "update.showReleaseNotes": false,
   "zenMode.hideLineNumbers": false,
   "breadcrumbs.enabled": false,
-  "workbench.colorTheme": "Midori Dark",
+  "workbench.colorTheme": "Serika",
   "workbench.iconTheme": "catppuccin-frappe",
   "workbench.statusBar.visible": true,
   "workbench.layoutControl.type": "menu",
