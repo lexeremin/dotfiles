@@ -14,8 +14,6 @@ pi/.pi/agent/themes/*
 !pi/.pi/agent/themes/mono.json
 !pi/.pi/agent/themes/serika.json
 !pi/.pi/agent/themes/serika-dark.json
-!pi/.pi/agent/themes/gruvbox-dark.json
-!pi/.pi/agent/themes/gruvbox-light.json
 
 # zsh — block everything, only allow main config files
 zsh/**

@@ -5,18 +5,4 @@
 --ignore=leaves
 --ignore=setup.sh
 --ignore=pi
---ignore=install.sh
---ignore=install-rice.sh
---ignore=setup-rice.sh
---ignore=thinkfan-setup.sh
---ignore=README.md
---ignore=hypr
---ignore=waybar
---ignore=fuzzel
---ignore=dunst
---ignore=Thunar
---ignore=sddm
---ignore=hyprlock
---ignore=hypridle
---ignore=swww
 
