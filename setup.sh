@@ -2,8 +2,6 @@
 
 sedi() { if [[ "$(uname)" == "Darwin" ]]; then sed -i '' "$@"; else sed -i "$@"; fi; }
 
-mkdir -p "$HOME/.config"
-
 # Display help message
 show_help() {
   echo "Usage: $0 [--restow|--unstow]"
