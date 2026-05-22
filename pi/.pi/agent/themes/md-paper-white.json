@@ -1,15 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
-  "name": "Midori",
+  "name": "MD Paper White",
   "vars": {
     "primary":  "#6B9AB8",
     "success":  "#8BAD79",
     "warning":  "#B89868",
     "error":    "#C4607A",
-    "fg":       "#58534C",
-    "subtle":   "#857F78",
-    "faint":    "#C8C3BB",
-    "bg_alt":   "#D8D3CB"
+    "fg":       "#474747",
+    "subtle":   "#868686",
+    "faint":    "#B8B8B8",
+    "bg_alt":   "#C2C2C2"
   },
   "colors": {
     "accent":             "primary",
@@ -27,12 +27,12 @@
     "selectedBg":         "bg_alt",
     "userMessageBg":      "bg_alt",
     "userMessageText":    "",
-    "customMessageBg":    "#D0CBC3",
+    "customMessageBg":    "#BBBBBB",
     "customMessageText":  "",
     "customMessageLabel": "primary",
     "toolPendingBg":      "bg_alt",
-    "toolSuccessBg":      "#D5E2CF",
-    "toolErrorBg":        "#EDD4D7",
+    "toolSuccessBg":      "#C8D9C2",
+    "toolErrorBg":        "#DEC8C8",
     "toolTitle":          "primary",
     "toolOutput":         "",
 
@@ -63,7 +63,7 @@
 
     "thinkingOff":        "faint",
     "thinkingMinimal":    "subtle",
-    "thinkingLow":        "#7A756E",
+    "thinkingLow":        "#7C7C7C",
     "thinkingMedium":     "primary",
     "thinkingHigh":       "success",
     "thinkingXhigh":      "error",
@@ -71,8 +71,8 @@
     "bashMode":           "warning"
   },
   "export": {
-    "pageBg":  "#E0DBD3",
-    "cardBg":  "#D8D3CB",
-    "infoBg":  "#D0CBC3"
+    "pageBg":  "#CCCCCC",
+    "cardBg":  "#C2C2C2",
+    "infoBg":  "#BBBBBB"
   }
 }

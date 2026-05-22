@@ -1,6 +1,6 @@
 add_newline = false
 format = """$directory$character"""
-palette = "serika"
+palette = "eink"
 right_format = """$all"""
 command_timeout = 1000
 
@@ -26,7 +26,7 @@ untracked  = "[?](subtle)"
 [cmd_duration]
 style = "warning"
 
-[palettes.midori]
+[palettes.md-paper-cream]
 red    = "#C4607A"
 green  = "#8BAD79"
 yellow = "#B89868"
@@ -41,7 +41,7 @@ error     = "#C4607A"
 subtle    = "#857F78"
 git       = "#8BAD79"
 
-[palettes.eink]
+[palettes.md-paper-white]
 red    = "#C4607A"
 green  = "#8BAD79"
 yellow = "#B89868"
@@ -56,20 +56,20 @@ error     = "#C4607A"
 subtle    = "#868686"
 git       = "#8BAD79"
 
-[palettes.mono]
-red    = "#444444"
-green  = "#666666"
-yellow = "#888888"
-blue   = "#333333"
-purple = "#555555"
-cyan   = "#4A4A4A"
-primary   = "#3C3C3C"
-secondary = "#666666"
-success   = "#5A5A5A"
-warning   = "#888888"
-error     = "#1E1E1E"
-subtle    = "#888888"
-git       = "#666666"
+[palettes.eink]
+red    = "#3E3B36"
+green  = "#5A5652"
+yellow = "#7A7672"
+blue   = "#504D49"
+purple = "#686461"
+cyan   = "#9C9892"
+primary   = "#3E3B36"
+secondary = "#9C9892"
+success   = "#5A5652"
+warning   = "#7A7672"
+error     = "#2C2926"
+subtle    = "#B8B4AE"
+git       = "#504D49"
 
 [palettes.serika]
 red    = "#DA3333"

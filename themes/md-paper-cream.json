@@ -1,13 +1,13 @@
 {
-  "name": "midori",
+  "name": "md-paper-cream",
   "type": "light",
-  "ghostty_theme": "midori",
-  "starship_palette": "midori",
-  "nvim_colorscheme": "midori",
+  "ghostty_theme": "md-paper-cream",
+  "starship_palette": "md-paper-cream",
+  "nvim_colorscheme": "md-paper-cream",
   "nvim_background": "light",
-  "nvim_lualine": "midori",
-  "vscode_theme": "Midori Dark",
-  "pi_theme": "midori",
+  "nvim_lualine": "md-paper-cream",
+  "vscode_theme": "MD Paper Cream",
+  "pi_theme": "md-paper-cream",
   "ansi": [
     "#E0DBD3", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#58534C", "#4E4A45", "#615C56",
     "#615C56", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#58534C", "#4E4A45", "#7A756E"

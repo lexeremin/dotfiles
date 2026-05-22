@@ -1,29 +1,32 @@
 local c = {
-  bg     = "#E8E8E8",
-  fg     = "#1E1E1E",
-  faint  = "#CDCDCD",
-  subtle = "#666666",
-  mid    = "#3C3C3C",
+  bg      = "#CCCCCC",
+  fg      = "#474747",
+  faint   = "#B8B8B8",
+  subtle  = "#868686",
+  primary = "#6B9AB8",
+  success = "#8BAD79",
+  warning = "#B89868",
+  error   = "#C4607A",
 }
 
 return {
   normal = {
-    a = { fg = c.bg, bg = c.fg, gui = "bold" },
+    a = { fg = c.bg, bg = c.primary, gui = "bold" },
     b = { fg = c.fg, bg = c.faint },
     c = { fg = c.subtle, bg = c.bg },
   },
   insert = {
-    a = { fg = c.bg, bg = c.mid, gui = "bold" },
+    a = { fg = c.bg, bg = c.success, gui = "bold" },
     b = { fg = c.fg, bg = c.faint },
     c = { fg = c.subtle, bg = c.bg },
   },
   visual = {
-    a = { fg = c.bg, bg = c.subtle, gui = "bold" },
+    a = { fg = c.bg, bg = c.warning, gui = "bold" },
     b = { fg = c.fg, bg = c.faint },
     c = { fg = c.subtle, bg = c.bg },
   },
   replace = {
-    a = { fg = c.bg, bg = c.mid, gui = "bold" },
+    a = { fg = c.bg, bg = c.error, gui = "bold" },
     b = { fg = c.fg, bg = c.faint },
     c = { fg = c.subtle, bg = c.bg },
   },

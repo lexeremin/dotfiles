@@ -1,21 +1,21 @@
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") == 1 then vim.cmd("syntax reset") end
-vim.g.colors_name = "midori"
+vim.g.colors_name = "md-paper-white"
 vim.opt.background = "light"
 
 local c = {
-  bg        = "#E0DBD3",
-  fg        = "#58534C",
-  subtle    = "#857F78",
-  faint     = "#C8C3BB",
-  mid       = "#615C56",
-  light_mid = "#7A756E",
+  bg        = "#CCCCCC",
+  fg        = "#474747",
+  subtle    = "#868686",
+  faint     = "#B8B8B8",
+  mid       = "#5E5E5E",
+  light_mid = "#7C7C7C",
   primary   = "#6B9AB8",
   success   = "#8BAD79",
   warning   = "#B89868",
   error     = "#C4607A",
-  bg_alt    = "#D8D3CB",
-  bg_float  = "#E8E4DC",
+  bg_alt    = "#C2C2C2",
+  bg_float  = "#D5D5D5",
 }
 
 local function hi(group, opts)

@@ -1,0 +1,29 @@
+{
+  "name": "md-paper-white",
+  "type": "light",
+  "ghostty_theme": "md-paper-white",
+  "starship_palette": "md-paper-white",
+  "nvim_colorscheme": "md-paper-white",
+  "nvim_background": "light",
+  "nvim_lualine": "md-paper-white",
+  "vscode_theme": "MD Paper White",
+  "pi_theme": "md-paper-white",
+  "ansi": [
+    "#CCCCCC", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#474747", "#4A4A4A", "#5E5E5E",
+    "#5E5E5E", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#474747", "#4A4A4A", "#7C7C7C"
+  ],
+  "colors": {
+    "bg":        "#CCCCCC",
+    "fg":        "#474747",
+    "subtle":    "#868686",
+    "faint":     "#B8B8B8",
+    "mid":       "#5E5E5E",
+    "light_mid": "#7C7C7C",
+    "bg_alt":    "#C2C2C2",
+    "bg_float":  "#D5D5D5",
+    "primary":   "#6B9AB8",
+    "success":   "#8BAD79",
+    "warning":   "#B89868",
+    "error":     "#C4607A"
+  }
+}

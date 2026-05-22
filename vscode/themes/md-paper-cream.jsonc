@@ -1,6 +1,6 @@
 {
     "$schema": "vscode://schemas/color-theme",
-    "name": "Midori Dark",
+    "name": "MD Paper Cream",
     "type": "dark",
     "colors": {
         "activityBar.activeBorder": "#6B9AB8",

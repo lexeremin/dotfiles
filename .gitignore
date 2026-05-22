@@ -9,9 +9,9 @@ pi/.pi/agent/*
 !pi/.pi/agent/settings.json
 !pi/.pi/agent/themes/
 pi/.pi/agent/themes/*
-!pi/.pi/agent/themes/midori.json
+!pi/.pi/agent/themes/md-paper-cream.json
+!pi/.pi/agent/themes/md-paper-white.json
 !pi/.pi/agent/themes/eink.json
-!pi/.pi/agent/themes/mono.json
 !pi/.pi/agent/themes/serika.json
 !pi/.pi/agent/themes/serika-dark.json
 !pi/.pi/agent/themes/gruvbox-dark.json

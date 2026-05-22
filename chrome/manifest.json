@@ -1,23 +1,23 @@
 {
-  "name": "Serika",
+  "name": "Eink",
   "version": "1.0",
   "manifest_version": 2,
   "theme": {
     "colors": {
-      "frame":                          [200, 202, 208],
-      "frame_inactive":                 [200, 202, 208],
-      "toolbar":                        [225, 225, 227],
-      "background_tab":                 [225, 225, 227],
-      "background_tab_inactive":        [200, 202, 208],
-      "tab_background_text":            [50,  52,  55],
-      "tab_background_text_inactive":   [170, 174, 179],
-      "bookmark_text":                  [74,  77,  82],
-      "toolbar_button_icon":            [74,  77,  82],
-      "ntp_background":                 [225, 225, 227],
-      "ntp_text":                       [50,  52,  55],
-      "ntp_link":                       [50,  52,  55],
-      "ntp_section":                    [209, 211, 216],
-      "ntp_section_text":               [50,  52,  55]
+      "frame":                          [229, 225, 218],
+      "frame_inactive":                 [229, 225, 218],
+      "toolbar":                        [236, 232, 226],
+      "background_tab":                 [236, 232, 226],
+      "background_tab_inactive":        [229, 225, 218],
+      "tab_background_text":            [44,  41,  38],
+      "tab_background_text_inactive":   [156, 152, 146],
+      "bookmark_text":                  [62,  59,  54],
+      "toolbar_button_icon":            [62,  59,  54],
+      "ntp_background":                 [236, 232, 226],
+      "ntp_text":                       [44,  41,  38],
+      "ntp_link":                       [62,  59,  54],
+      "ntp_section":                    [212, 208, 202],
+      "ntp_section_text":               [44,  41,  38]
     }
   }
 }

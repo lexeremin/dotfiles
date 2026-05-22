@@ -9,21 +9,21 @@
   "vscode_theme": "Eink",
   "pi_theme": "eink",
   "ansi": [
-    "#CCCCCC", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#474747", "#4A4A4A", "#5E5E5E",
-    "#5E5E5E", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#474747", "#4A4A4A", "#7C7C7C"
+    "#F2EDE8", "#3E3B36", "#5A5652", "#7A7672", "#504D49", "#686461", "#9C9892", "#AFABA5",
+    "#C8C4BE", "#3E3B36", "#686461", "#9C9892", "#504D49", "#7A7672", "#AFABA5", "#E5E1DA"
   ],
   "colors": {
-    "bg":        "#CCCCCC",
-    "fg":        "#474747",
-    "subtle":    "#868686",
-    "faint":     "#B8B8B8",
-    "mid":       "#5E5E5E",
-    "light_mid": "#7C7C7C",
-    "bg_alt":    "#C2C2C2",
-    "bg_float":  "#D5D5D5",
-    "primary":   "#6B9AB8",
-    "success":   "#8BAD79",
-    "warning":   "#B89868",
-    "error":     "#C4607A"
+    "bg":        "#F2EDE8",
+    "fg":        "#2C2926",
+    "subtle":    "#9C9892",
+    "faint":     "#D4D0CA",
+    "mid":       "#5A5652",
+    "light_mid": "#7A7672",
+    "bg_alt":    "#E5E1DA",
+    "bg_float":  "#ECE8E2",
+    "primary":   "#3E3B36",
+    "success":   "#5A5652",
+    "warning":   "#7A7672",
+    "error":     "#2C2926"
   }
 }
