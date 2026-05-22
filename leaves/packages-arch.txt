@@ -18,6 +18,8 @@ starship
 stow
 tmux
 tree
+unzip
+wget
 yazi
 zsh-autosuggestions
 zsh-syntax-highlighting
