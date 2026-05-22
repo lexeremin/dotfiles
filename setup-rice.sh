@@ -25,10 +25,7 @@ EOF
 }
 
 # Rice stow packages (each becomes ~/.config/<name>)
-# hyprlock + hypridle live INSIDE hypr/ (Hyprland reads them from ~/.config/hypr/),
-# so they're not separate stow packages. hyprlock/themes/ stays in-repo for the
-# theme switcher but isn't stowed.
-RICE_PKGS=(hypr waybar fuzzel dunst Thunar swww)
+RICE_PKGS=(hypr waybar fuzzel dunst Thunar hyprlock hypridle swww)
 
 # ── Args ─────────────────────────────────────────────────────────────────────
 MODE="stow"
