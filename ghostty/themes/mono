@@ -1,5 +1,6 @@
 background = #E8E8E8
 foreground = #1E1E1E
+cursor-color = #3C3C3C
 palette = 0=#E8E8E8
 palette = 1=#444444
 palette = 2=#666666

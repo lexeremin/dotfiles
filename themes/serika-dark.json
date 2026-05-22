@@ -4,9 +4,14 @@
   "ghostty_theme": "serika-dark",
   "starship_palette": "serika-dark",
   "nvim_colorscheme": "serika-dark",
+  "nvim_background": "dark",
   "nvim_lualine": "serika-dark",
   "vscode_theme": "Serika Dark",
   "pi_theme": "serika-dark",
+  "ansi": [
+    "#323437", "#CA4754", "#8A8E93", "#E2B714", "#7888A8", "#A07898", "#608888", "#8A8E93",
+    "#4A4D52", "#CA4754", "#8A8E93", "#E2B714", "#7888A8", "#A07898", "#608888", "#D1D0C5"
+  ],
   "colors": {
     "bg":        "#323437",
     "fg":        "#D1D0C5",

@@ -6,6 +6,10 @@ foreground = "#323437"
 cursor = "#E2B714"
 text   = "#323437"
 
+[colors.selection]
+background = "#D1D3D8"
+text       = "#323437"
+
 [colors.normal]
 black   = "#E1E1E3"
 red     = "#DA3333"

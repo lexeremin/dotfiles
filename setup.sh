@@ -14,15 +14,19 @@ show_help() {
 }
 
 # Parse command-line arguments
-MODE="stow" # Default mode
+MODE="stow"
+THEME_ARG=""
 
-if [[ "$1" == "--restow" ]]; then
-  MODE="restow"
-elif [[ "$1" == "--unstow" ]]; then
-  MODE="unstow"
-elif [[ "$1" == "--help" || "$1" == "-h" ]]; then
-  show_help
-fi
+for arg in "$@"; do
+  case "$arg" in
+    --restow|restow)   MODE="restow" ;;
+    --unstow|unstow)   MODE="unstow" ;;
+    --help|-h)         show_help ;;
+    --theme=*)         THEME_ARG="${arg#--theme=}" ;;
+    -*)                ;;
+    *)                 [[ -z "$THEME_ARG" ]] && THEME_ARG="$arg" ;;
+  esac
+done
 
 # Read .stowrc to get ignore patterns
 IGNORE_PATTERNS=()
@@ -97,6 +101,7 @@ apply_theme() {
   local ghostty_theme=$(get_val ghostty_theme)
   local starship_palette=$(get_val starship_palette)
   local nvim_colorscheme=$(get_val nvim_colorscheme)
+  local nvim_background=$(get_val nvim_background)
   local nvim_lualine=$(get_val nvim_lualine)
   local vscode_theme=$(get_val vscode_theme)
   local pi_theme=$(get_val pi_theme)
@@ -118,6 +123,8 @@ apply_theme() {
   sedi "s/^palette = .*/palette = \"$starship_palette\"/" starship/starship.toml
   sedi 's/colorscheme = "[^"]*"/colorscheme = "'"$nvim_colorscheme"'"/' \
     nvim/lua/plugins/colorscheme.lua
+  sedi 's/vim\.o\.background = "[^"]*"/vim.o.background = "'"$nvim_background"'"/' \
+    nvim/lua/plugins/colorscheme.lua
   sedi 's/theme = "[^"]*"/theme = "'"$nvim_lualine"'"/' \
     nvim/lua/plugins/ui.lua
   sedi 's/"workbench\.colorTheme": "[^"]*"/"workbench.colorTheme": "'"$vscode_theme"'"/' \
@@ -129,6 +136,10 @@ apply_theme() {
   cp "chrome/themes/$theme.json"        chrome/manifest.json
   cp "firefox/themes/$theme.json"       firefox/manifest.json
   cp "vscode/themes/$theme.jsonc"       vscode/colorscheme.jsonc
+
+  # Live reload running apps
+  killall -SIGUSR2 ghostty 2>/dev/null || true
+  tmux source-file "${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" 2>/dev/null || true
 }
 
 # Discover available themes
@@ -138,13 +149,24 @@ for f in themes/*.json; do
 done
 
 if [[ ${#THEMES[@]} -gt 0 ]]; then
-  echo "Available themes:"
-  for i in "${!THEMES[@]}"; do
-    echo "  $((i+1)). ${THEMES[$i]}"
-  done
-  read -rp "Choose a theme [1]: " THEME_CHOICE
-  THEME_CHOICE="${THEME_CHOICE:-1}"
-  THEME="${THEMES[$((THEME_CHOICE-1))]}"
+  if [[ -n "$THEME_ARG" ]]; then
+    THEME="$THEME_ARG"
+    valid=false
+    for t in "${THEMES[@]}"; do [[ "$t" == "$THEME" ]] && valid=true && break; done
+    if [[ "$valid" == false ]]; then
+      echo "Unknown theme: $THEME"
+      echo "Available: ${THEMES[*]}"
+      exit 1
+    fi
+  else
+    echo "Available themes:"
+    for i in "${!THEMES[@]}"; do
+      echo "  $((i+1)). ${THEMES[$i]}"
+    done
+    read -rp "Choose a theme [1]: " THEME_CHOICE
+    THEME_CHOICE="${THEME_CHOICE:-1}"
+    THEME="${THEMES[$((THEME_CHOICE-1))]}"
+  fi
   echo "Using theme: $THEME"
   apply_theme "$THEME"
 fi

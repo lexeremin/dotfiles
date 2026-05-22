@@ -4,7 +4,11 @@ foreground = "#D1D0C5"
 
 [colors.cursor]
 cursor = "#E2B714"
-text   = "#323437"
+text   = "#D1D0C5"
+
+[colors.selection]
+background = "#2C2E31"
+text       = "#D1D0C5"
 
 [colors.normal]
 black   = "#323437"

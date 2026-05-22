@@ -1,0 +1,29 @@
+{
+  "name": "gruvbox-light",
+  "type": "light",
+  "ghostty_theme": "gruvbox-light",
+  "starship_palette": "gruvbox-light",
+  "nvim_colorscheme": "gruvbox",
+  "nvim_background": "light",
+  "nvim_lualine": "gruvbox",
+  "vscode_theme": "Gruvbox Light Medium",
+  "pi_theme": "gruvbox-light",
+  "ansi": [
+    "#fbf1c7", "#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#689d6a", "#7c6f64",
+    "#928374", "#9d0006", "#79740e", "#b57614", "#076678", "#8f3f71", "#427b58", "#3c3836"
+  ],
+  "colors": {
+    "bg":        "#fbf1c7",
+    "fg":        "#3c3836",
+    "subtle":    "#7c6f64",
+    "faint":     "#f2e5bc",
+    "mid":       "#504945",
+    "light_mid": "#bdae93",
+    "bg_alt":    "#ebdbb2",
+    "bg_float":  "#d5c4a1",
+    "primary":   "#d79921",
+    "success":   "#79740e",
+    "warning":   "#af3a03",
+    "error":     "#9d0006"
+  }
+}

@@ -4,9 +4,14 @@
   "ghostty_theme": "midori",
   "starship_palette": "midori",
   "nvim_colorscheme": "midori",
+  "nvim_background": "light",
   "nvim_lualine": "midori",
   "vscode_theme": "Midori Dark",
   "pi_theme": "midori",
+  "ansi": [
+    "#E0DBD3", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#58534C", "#4E4A45", "#615C56",
+    "#615C56", "#C4607A", "#8BAD79", "#B89868", "#6B9AB8", "#58534C", "#4E4A45", "#7A756E"
+  ],
   "colors": {
     "bg":        "#E0DBD3",
     "fg":        "#58534C",

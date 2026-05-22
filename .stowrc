@@ -4,5 +4,6 @@
 --ignore=leaves.txt
 --ignore=leaves
 --ignore=setup.sh
+--ignore=generate-themes.sh
 --ignore=pi
 

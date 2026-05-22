@@ -2,6 +2,14 @@
 background = "#CCCCCC"
 foreground = "#474747"
 
+[colors.cursor]
+cursor = "#6B9AB8"
+text   = "#474747"
+
+[colors.selection]
+background = "#C2C2C2"
+text       = "#474747"
+
 [colors.normal]
 black   = "#CCCCCC"
 red     = "#C4607A"
