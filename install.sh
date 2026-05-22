@@ -16,35 +16,11 @@ install_font_macos() {
   brew install --cask font-jetbrains-mono-nerd-font
 }
 
-ensure_bootstrap_tools() {
-  # wget + unzip are needed by install_font_linux before the main package list runs.
-  local missing=()
-  command -v wget  &>/dev/null || missing+=("wget")
-  command -v unzip &>/dev/null || missing+=("unzip")
-  [[ ${#missing[@]} -eq 0 ]] && return
-
-  echo "Installing bootstrap tools: ${missing[*]}"
-  if command -v pacman &>/dev/null; then
-    sudo pacman -S --needed --noconfirm "${missing[@]}"
-  elif command -v dnf &>/dev/null; then
-    sudo dnf install -y "${missing[@]}"
-  elif command -v rpm-ostree &>/dev/null; then
-    rpm-ostree install --apply-live --allow-inactive "${missing[@]}" || \
-      rpm-ostree install "${missing[@]}"
-  elif command -v apt &>/dev/null; then
-    sudo apt update && sudo apt install -y "${missing[@]}"
-  else
-    echo "No supported package manager found to install: ${missing[*]}"
-    exit 1
-  fi
-}
-
 install_font_linux() {
   if fc-list | grep -qi "JetBrainsMono Nerd Font"; then
     echo "JetBrainsMono Nerd Font already installed, skipping."
     return
   fi
-  ensure_bootstrap_tools
   echo "Installing JetBrainsMono Nerd Font..."
   local tmp
   tmp=$(mktemp -d)
