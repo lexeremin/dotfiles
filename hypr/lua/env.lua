@@ -1,0 +1,12 @@
+-- Wayland-friendly env vars (Qt, GTK, cursor, etc).
+hl.keyword("env", "XDG_CURRENT_DESKTOP,Hyprland")
+hl.keyword("env", "XDG_SESSION_TYPE,wayland")
+hl.keyword("env", "XDG_SESSION_DESKTOP,Hyprland")
+hl.keyword("env", "QT_QPA_PLATFORM,wayland;xcb")
+hl.keyword("env", "QT_QPA_PLATFORMTHEME,qt6ct")
+hl.keyword("env", "QT_WAYLAND_DISABLE_WINDOWDECORATION,1")
+hl.keyword("env", "GDK_BACKEND,wayland,x11")
+hl.keyword("env", "MOZ_ENABLE_WAYLAND,1")
+hl.keyword("env", "XCURSOR_SIZE,24")
+hl.keyword("env", "HYPRCURSOR_SIZE,24")
+hl.keyword("env", "ELECTRON_OZONE_PLATFORM_HINT,auto")

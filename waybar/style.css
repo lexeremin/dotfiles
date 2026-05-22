@@ -1,0 +1,44 @@
+/* Paperlike base. Per-theme @define-color values live in current-theme.css. */
+@import "current-theme.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: @bg;
+  color: @fg;
+  border-bottom: 1px solid @border;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: @subtle;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+#workspaces button.active {
+  color: @primary;
+  border-bottom: 1px solid @primary;
+}
+#workspaces button.urgent {
+  color: @error;
+}
+
+#window {
+  color: @fg;
+  padding: 0 8px;
+}
+
+#tray, #clock, #battery, #backlight, #pulseaudio, #network, #bluetooth {
+  padding: 0 8px;
+  color: @fg;
+}
+
+#battery.warning  { color: @warning; }
+#battery.critical { color: @error; }
+#network.disconnected { color: @subtle; }

@@ -1,0 +1,56 @@
+# Compositor + portal stack
+hyprland
+hyprlock
+hypridle
+hyprpaper
+hyprpolkitagent
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+
+# Bar, launcher, notifications
+waybar
+fuzzel
+dunst
+
+# Display manager
+sddm
+qt6-svg
+qt6-virtualkeyboard
+
+# File manager + thumbnailers
+thunar
+thunar-volman
+thunar-archive-plugin
+tumbler
+ffmpegthumbnailer
+gvfs
+
+# Screenshot + clipboard
+grim
+slurp
+swappy
+wl-clipboard
+cliphist
+
+# Audio
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+pamixer
+playerctl
+brightnessctl
+
+# Network + bluetooth
+networkmanager
+network-manager-applet
+blueman
+bluez
+bluez-utils
+
+# Wallpaper daemon
+swww
+
+# Icons / GTK theme assets for paperlike vibe
+papirus-icon-theme
+adwaita-icon-theme

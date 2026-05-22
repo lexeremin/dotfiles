@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "Gruvbox Light",
+  "version": "1.0",
+  "theme": {
+    "colors": {
+      "frame":                       "#ebdbb2",
+      "frame_inactive":              "#ebdbb2",
+      "tab_background_text":         "#7c6f64",
+      "tab_text":                    "#3c3836",
+      "tab_line":                    "#b57614",
+      "tab_loading_fill":            "#b57614",
+      "toolbar":                     "#fbf1c7",
+      "toolbar_text":                "#3c3836",
+      "toolbar_field":               "#ebdbb2",
+      "toolbar_field_text":          "#3c3836",
+      "toolbar_field_border":        "#ebdbb2",
+      "toolbar_field_focus":         "#fbf1c7",
+      "toolbar_field_text_focus":    "#3c3836",
+      "toolbar_field_border_focus":  "#b57614",
+      "toolbar_top_separator":       "#ebdbb2",
+      "toolbar_bottom_separator":    "#ebdbb2",
+      "toolbar_vertical_separator":  "#ebdbb2",
+      "button_background_hover":     "#ebdbb2",
+      "button_background_active":    "#d5c4a1",
+      "popup":                       "#f9f5d7",
+      "popup_text":                  "#3c3836",
+      "popup_border":                "#ebdbb2",
+      "popup_highlight":             "#ebdbb2",
+      "popup_highlight_text":        "#3c3836",
+      "sidebar":                     "#fbf1c7",
+      "sidebar_text":                "#3c3836",
+      "sidebar_highlight":           "#ebdbb2",
+      "sidebar_highlight_text":      "#3c3836",
+      "sidebar_border":              "#ebdbb2",
+      "ntp_background":              "#fbf1c7",
+      "ntp_text":                    "#3c3836"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+// Paperlike top bar. Modules tuned for laptops; remove battery/backlight on desktops.
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 6,
+  "margin": 0,
+
+  "modules-left":   ["hyprland/workspaces", "hyprland/submap"],
+  "modules-center": ["hyprland/window"],
+  "modules-right":  ["tray", "network", "bluetooth", "pulseaudio", "backlight", "battery", "clock"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true
+  },
+
+  "hyprland/window": {
+    "max-length": 80,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "battery": {
+    "states":   { "warning": 25, "critical": 10 },
+    "format":         "{capacity}% {icon}",
+    "format-charging":"{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-icons":   ["", "", "", "", ""]
+  },
+
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""],
+    "on-scroll-up":   "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "pulseaudio": {
+    "format":         "{volume}% {icon}",
+    "format-muted":   "婢",
+    "format-icons":   { "default": ["", "", ""] },
+    "on-click":       "pavucontrol",
+    "on-scroll-up":   "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  "network": {
+    "format-wifi":         "{essid} ({signalStrength}%) ",
+    "format-ethernet":     "{ifname} ",
+    "format-disconnected": "off ",
+    "tooltip-format":      "{ifname} via {gwaddr}",
+    "on-click":            "nm-connection-editor"
+  },
+
+  "bluetooth": {
+    "format":             " {status}",
+    "format-disabled":    "",
+    "format-connected":   " {num_connections}",
+    "on-click":           "blueman-manager"
+  },
+
+  "tray": { "icon-size": 16, "spacing": 8 }
+}
